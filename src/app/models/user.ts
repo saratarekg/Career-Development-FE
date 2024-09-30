@@ -6,3 +6,33 @@ export interface User {
   password: string;
   phone: string;
 }
+
+export interface UsersDTO {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+}
+
+export interface UserScoresDTO {
+  userId: string;
+  score: number;
+}
+
+export interface UserScoreboardDTO {
+  firstName: string;
+  lastName: string;
+  score: number;
+  levelName: string;
+}
+
+export interface PaginatedUsers {
+  content: UsersDTO[];
+  totalElements: number;
+  totalPages: number;
+  size: number;
+}
+
+
+

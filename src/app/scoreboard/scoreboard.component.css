@@ -1,0 +1,49 @@
+table {
+  width: 100%;
+}
+
+.scoreboard-container {
+  margin: 20px;
+}
+
+.first-row {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.level-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.level-badge.Explorer {
+  background-color: lightblue;
+}
+
+.level-badge.Dynamo {
+  background-color: yellow;
+}
+
+.level-badge.Pioneer {
+  background-color: orange;
+}
+
+.level-badge.Legend {
+  background-color: purple;
+}
+
+.level-badge.Guru {
+  background-color: darkred;
+}
+
+
+.filter-controls {
+  margin-bottom: 20px;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
