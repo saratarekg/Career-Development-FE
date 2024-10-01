@@ -1,0 +1,48 @@
+
+.cls-path{
+  fill: none;
+  stroke: #707070;
+}
+
+.cls-container {
+  fill: none;
+}
+
+.explorer {
+  fill: darkblue;
+}
+
+.dynamo {
+  fill: #75dfb6;
+}
+
+.pioneer {
+  fill: #94d8ed;
+}
+
+.legend {
+  fill: deeppink;
+}
+
+.guru {
+  fill: orange;
+}
+
+.label{
+  font-size: 10px;
+  /*font-style: italic;*/
+  font-weight: bold;
+  fill: #27367e;
+}
+
+.userLabel{
+  font-size: 10px;
+  fill:white;
+  alignment-baseline: middle;
+  text-anchor:middle;
+  text-transform: uppercase;
+}
+
+.user {
+  fill: #7c8bd5;
+}

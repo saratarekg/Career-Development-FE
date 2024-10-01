@@ -35,5 +35,11 @@ export interface PaginatedUsers {
   size: number;
 }
 
+export interface UserJourneyDTO {
+  firstName: string;
+  lastName: string;
+  score: number;
+
+}
 
 

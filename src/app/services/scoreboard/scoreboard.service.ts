@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, switchMap, map, catchError, throwError } from 'rxjs';
 import { PaginatedUsers, UserScoresDTO } from "../../models/user";
+import {environment} from "../../../environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScoreboardService {
-  private usersAPI = 'http://localhost:8080/api/users';
-  private usersScoresAPI = 'http://localhost:8081/api/userScores';
-  private scoreboardLevelsAPI = 'http://localhost:8081/api/scoreboardLevels';
+  private usersAPI = environment.usersAPI;
+  private usersScoresAPI = environment.usersScoresAPI;
+  private scoreboardLevelsAPI = environment.scoreboardLevelsAPI;
 
   constructor(private http: HttpClient) {}
 
