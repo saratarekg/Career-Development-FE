@@ -1,0 +1,39 @@
+.learning-scoreboard-card {
+  padding: 20px;
+  margin: 20px;
+  max-height: 600px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-section, .map-section {
+  flex: 1;
+}
+
+
+.sumerge-logo {
+  width: 20%;
+  object-fit: contain;
+}
+
+.scoreboard-text{
+  color: #7c8bd5;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+
+}
+
+h2{
+  text-transform: uppercase;
+
+}
+
+mat-icon {
+  margin-left: 8px;
+  font-size: 24px;
+}

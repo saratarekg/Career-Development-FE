@@ -8,11 +8,6 @@ table {
 
 }
 
-.first-row {
-  font-weight: bold;
-  background-color: #f0f0f0;
-}
-
 .level-badge {
   padding: 5px 10px;
   border-radius: 5px;
@@ -25,11 +20,11 @@ table {
 }
 
 .level-badge.Dynamo {
-  background-color: darkseagreen;
+  background-color: #75dfb6;
 }
 
 .level-badge.Pioneer {
-  background-color: lightblue;
+  background-color: #94d8ed;
 }
 
 .level-badge.Legend {
