@@ -4,9 +4,10 @@ import { ScoreboardService } from "../services/scoreboard/scoreboard.service";
 import { MatTableModule } from "@angular/material/table";
 import { MatTableDataSource } from '@angular/material/table'; // Import for data source
 import { MatSort, MatSortModule } from '@angular/material/sort'; // Import for sorting
-import { NgClass } from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input"; // Import for ViewChild
+import { MatInputModule } from "@angular/material/input";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-scoreboard',
@@ -16,10 +17,13 @@ import { MatInputModule } from "@angular/material/input"; // Import for ViewChil
     NgClass,
     MatFormFieldModule,
     MatInputModule,
-    MatSortModule
+    MatSortModule,
+    MatIcon,
+    NgIf
   ],
   templateUrl: './scoreboard.component.html',
-  styleUrls: ['./scoreboard.component.css']
+  styleUrls: ['./scoreboard.component.css'],
+
 })
 export class ScoreboardComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['rank', 'name', 'score', 'level'];

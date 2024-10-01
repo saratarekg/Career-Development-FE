@@ -25,6 +25,7 @@ export interface UserScoreboardDTO {
   lastName: string;
   score: number;
   levelName: string;
+  rank: number;
 }
 
 export interface PaginatedUsers {

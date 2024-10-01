@@ -1,9 +1,11 @@
 table {
   width: 100%;
+
 }
 
 .scoreboard-container {
   margin: 20px;
+
 }
 
 .first-row {
@@ -19,23 +21,23 @@ table {
 }
 
 .level-badge.Explorer {
-  background-color: lightblue;
+  background-color: darkblue;
 }
 
 .level-badge.Dynamo {
-  background-color: yellow;
+  background-color: darkseagreen;
 }
 
 .level-badge.Pioneer {
-  background-color: orange;
+  background-color: lightblue;
 }
 
 .level-badge.Legend {
-  background-color: purple;
+  background-color: deeppink;
 }
 
 .level-badge.Guru {
-  background-color: darkred;
+  background-color: orange;
 }
 
 
@@ -44,6 +46,24 @@ table {
 }
 
 .mat-mdc-form-field {
-  font-size: 14px;
   width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.head-row{
+  background-color: #7c8bd5;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+.first-rank-icon {
+  color: gold;
+  font-size: 25px;
+  margin-left: 8px;
+  vertical-align: middle;
 }
