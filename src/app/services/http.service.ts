@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserDto } from '../models/userDto';
+import { UsersSignUpDTO } from '../models/userDto';
 import { LoginDto } from '../models/loginDto';
 import { map, Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -9,15 +9,12 @@ import { AuthResponse } from '../models/authResponse';
   providedIn: 'root',
 })
 export class HttpService {
-  constructor(
-    private httpClient: HttpClient,
-    private authService: AuthService
-  ) {}
+  constructor(private httpClient: HttpClient) {}
 
   private urlUsers = 'http://localhost:8080/api/users';
   private urlAuth = 'http://localhost:8080/api/auth';
 
-  signUpUser(user: UserDto) {
+  signUpUser(user: UsersSignUpDTO) {
     return this.httpClient
       .post(`${this.urlUsers}/signUp`, user)
       .subscribe((user) => {
@@ -25,15 +22,14 @@ export class HttpService {
       });
   }
 
-  logInUser(loginDto: LoginDto) {
-    return this.httpClient
-      .post<AuthResponse>(`${this.urlAuth}/login`, loginDto, {
+  logInUser(loginDto: LoginDto): Observable<AuthResponse> {
+    return this.httpClient.post<AuthResponse>(
+      `${this.urlAuth}/login`,
+      loginDto,
+      {
         withCredentials: true,
-      })
-      .subscribe((token) => {
-        this.authService.setToken(token.accessToken);
-        console.log(token.accessToken);
-      });
+      }
+    );
   }
 
   isTokenValid(token: string): Observable<boolean> {

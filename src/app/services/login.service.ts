@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpService } from './http.service';
+import { AuthResponse } from '../models/authResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +22,8 @@ export class LoginService {
     this.password.next(password);
   }
 
-  logIn() {
-    this.httpService.logInUser({
+  logIn(): Observable<AuthResponse> {
+    return this.httpService.logInUser({
       email: this.email.value,
       password: this.password.value,
     });

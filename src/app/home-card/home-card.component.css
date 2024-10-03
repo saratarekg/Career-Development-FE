@@ -1,0 +1,72 @@
+.learning-scoreboard-card {
+  padding: 20px;
+  margin: 20px;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+}
+
+.text-section, .map-section {
+  flex: 1;
+}
+
+.map-section {
+  max-height: 550px;
+}
+
+.sumerge-logo {
+  width: 20%;
+  object-fit: contain;
+}
+
+.scoreboard-text{
+  color: #7c8bd5;
+  align-items: center;
+  font-size: 24px;
+  display: inline-flex;
+}
+
+h2{
+  text-transform: uppercase;
+}
+
+mat-icon {
+  margin-left: 8px;
+  font-size: 24px;
+}
+
+.mobile-only {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-section {
+    text-align: center;
+  }
+
+  .mobile-only {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  h2{
+    display:none
+  }
+
+  .map-section {
+    max-height: 350px;
+  }
+}
+

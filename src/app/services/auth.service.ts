@@ -35,11 +35,14 @@ export class AuthService {
     return date !== null && date.valueOf() > new Date().valueOf();
   }
 
+  logout() {
+    localStorage.removeItem('token'); // Or handle cookies if you're using them
+  }
+
   isLoggedIn(): boolean {
     const token = this.getToken();
     if (!token) return false;
     console.log(this.getTokenExpirationDate(token));
-
     return this.isTokenExpired();
   }
 }

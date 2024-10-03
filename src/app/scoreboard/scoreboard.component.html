@@ -1,0 +1,39 @@
+<div class="scoreboard-container">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter by name, level, score or rank" #inp,ut>
+  </mat-form-field>
+  <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="rank">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Rank </th>
+      <td mat-cell *matCellDef="let userScore" >
+        {{ userScore.rank }}
+        <mat-icon *ngIf="userScore.rank === 1" class="first-rank-icon">emoji_events</mat-icon>
+      </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef > Employee's Name </th>
+      <td mat-cell *matCellDef="let userScore"> {{ userScore.firstName }} {{ userScore.lastName }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Learning's Score </th>
+      <td mat-cell *matCellDef="let userScore"> {{ userScore.score }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="level">
+      <th mat-header-cell *matHeaderCellDef> Level </th>
+      <td mat-cell *matCellDef="let userScore">
+        <span [ngClass]="(userScore.levelName)" class="level-badge">
+          {{userScore.levelName}}
+        </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="head-row"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
