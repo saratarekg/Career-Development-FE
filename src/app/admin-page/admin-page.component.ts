@@ -6,8 +6,9 @@ import {MatAccordion, MatExpansionModule} from "@angular/material/expansion";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {AddUserComponent} from "../add-user/add-user.component";
-import {FreezeUserComponent} from "../manage-user/freeze-user.component";
+import {ManageUserComponent} from "../manage-user/manage-user.component";
 import {ResetPasswordComponent} from "../reset-password/reset-password.component";
+import {AssignTitleComponent} from "../assign-title/assign-title.component";
 
 @Component({
   selector: 'app-admin-page',
@@ -20,9 +21,10 @@ import {ResetPasswordComponent} from "../reset-password/reset-password.component
     MatInputModule,
     MatCardModule,
     AddUserComponent,
-    FreezeUserComponent,
+    ManageUserComponent,
 
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AssignTitleComponent
   ],
 
   templateUrl: './admin-page.component.html',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import { MatFormField } from "@angular/material/form-field";
-import { MatButtonToggle, MatButtonToggleGroup } from "@angular/material/button-toggle";
-import { MatInput } from "@angular/material/input";
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
+import { MatInputModule } from "@angular/material/input";
 import { MatButton } from "@angular/material/button";
 import { NgIf } from "@angular/common";
 import { UserService } from "../services/user/user.service"; // Import UserService
@@ -10,24 +10,24 @@ import { HttpErrorResponse } from '@angular/common/http'; // To handle HTTP erro
 
 @Component({
   selector: 'app-freeze-user',
-  templateUrl: './freeze-user.component.html',
-  styleUrls: ['./freeze-user.component.css'],
+  templateUrl: './manage-user.component.html',
+  styleUrls: ['./manage-user.component.css'],
   imports: [
-    MatFormField,
-    MatButtonToggleGroup,
-    MatInput,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    MatButtonToggle,
+    MatButtonToggleGroup,
     MatButton,
-    NgIf
+    NgIf,
+    MatButtonToggle,
   ],
   standalone: true
 })
-export class FreezeUserComponent implements OnInit {
+export class ManageUserComponent implements OnInit {
   userForm: FormGroup;
   message: string = '';
-  selectedAction: 'freeze' | 'unfreeze' | 'delete' = 'freeze'; // Default action
+  selectedAction: 'freeze' | 'unfreeze' | 'delete' = 'freeze';
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.userForm = this.fb.group({
@@ -92,6 +92,6 @@ export class FreezeUserComponent implements OnInit {
 
   setAction(action: 'freeze' | 'unfreeze' | 'delete') {
     this.selectedAction = action;
-    this.userForm.reset(); // Reset form on action change
+    this.userForm.reset();
   }
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FreezeUserComponent } from './freeze-user.component';
+import { ManageUserComponent } from './manage-user.component';
 
 describe('FreezeUserComponent', () => {
-  let component: FreezeUserComponent;
-  let fixture: ComponentFixture<FreezeUserComponent>;
+  let component: ManageUserComponent;
+  let fixture: ComponentFixture<ManageUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FreezeUserComponent]
+      imports: [ManageUserComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FreezeUserComponent);
+    fixture = TestBed.createComponent(ManageUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -8,8 +8,10 @@ import { User } from '../../models/userDto';
   providedIn: 'root',
 })
 export class UserService {
-  private usersAPI = 'http://localhost:8080/api/users';
-  private usersScoresAPI = 'http://localhost:8081/api/userScores';
+  private usersAPI = environment.usersAPI;
+  private titlesAPI = environment.titlesAPI;
+  private departmentsAPI = environment.departmentsAPI;
+
 
   constructor(private http: HttpClient) {}
 
@@ -57,4 +59,18 @@ export class UserService {
       params: { userEmail, managerEmail },
     });
   }
+
+  getAllDepartments(): Observable<any> {
+    return this.http.get(`${this.departmentsAPI}`);
+  }
+
+  getTitlesByDepartment(departmentId: string): Observable<any> {
+    return this.http.get(`${this.titlesAPI}/getByDepartment/${departmentId}`);
+  }
+
+  assignTitleToUser(email: string, titleId: string): Observable<any> {
+    return this.http.put(`${this.usersAPI}/assignTitle?email=${email}&titleId=${titleId}`, null);
+  }
+
+
 }
