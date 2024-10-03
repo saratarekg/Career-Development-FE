@@ -1,22 +1,4 @@
-<mat-toolbar class="transparent-toolbar">
-  <mat-card-header>
-    <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
-  </mat-card-header>
-  <span class="spacer"></span>
-  <nav>
-    <a
-      mat-button
-      routerLink="/login"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >Login</a>
-    <a mat-button routerLink="/signup" routerLinkActive="active">Register</a>
-    <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
-    <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
-
-  </nav>
-</mat-toolbar>
-
+<app-navbar/>
 <div class="container">
 <router-outlet />
 </div>

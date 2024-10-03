@@ -34,6 +34,7 @@ export class UserService {
       {
         params: { email },
         withCredentials: true,
+        responseType: 'text' as 'json'
       }
     );
   }
@@ -45,23 +46,27 @@ export class UserService {
       {
         params: { email },
         withCredentials: true,
+        responseType: 'text' as 'json'
       }
     );
   }
 
   deleteUserByEmail(email: string): Observable<string> {
-    return this.http.delete<string>(`${this.usersAPI}/deleteByEmail/${email}`, {
+    return this.http.delete<string>(`${this.usersAPI}/deleteByEmail`, {
+      params: { email },
       withCredentials: true,
+      responseType: 'text' as 'json'
     });
   }
 
   resetPassword(email: string, newPassword: string): Observable<string> {
     return this.http.put<string>(
-      `${this.usersAPI}/resetPassword/${email}`,
+      `${this.usersAPI}/resetPassword`,
       null,
       {
-        params: { newPassword },
+        params: { email, newPassword },
         withCredentials: true,
+        responseType: 'text' as 'json'
       }
     );
   }
@@ -69,16 +74,18 @@ export class UserService {
   assignManagerByEmail(
     userEmail: string,
     managerEmail: string
-  ): Observable<string> {
-    return this.http.put<string>(
+  ): Observable<Object> {
+    return this.http.put(
       `${this.usersAPI}/assignManager`,
       null,
       {
         params: { userEmail, managerEmail },
         withCredentials: true,
+        responseType: 'text' as 'json'
       }
     );
   }
+
 
   getAllDepartments(): Observable<any> {
     return this.http.get(`${this.departmentsAPI}`, {

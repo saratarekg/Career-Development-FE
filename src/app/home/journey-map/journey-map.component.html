@@ -45,24 +45,26 @@
     </g>
 
     <ng-container *ngFor="let user of users; let index = index">
-      <g id="user_{{index}}" [attr.data-name]="'user_' + index"
-         [attr.transform]="'translate(' + calculateTransform(user.score).tx + ',' + calculateTransform(user.score).ty + ')'">
-        <circle
-          class=" user"
-          [attr.cx]="calculatePosition(user.score).cx"
-          [attr.cy]="calculatePosition(user.score).cy"
-          r="12"
-          matTooltip="{{ user.firstName }} {{ user.lastName }} - Score: {{ user.score }}"
-          matTooltipPosition="above"
-        />
-        <text
-          [attr.x]="calculatePosition(user.score).cx"
-          [attr.y]="calculatePosition(user.score).cy"
-          class="userLabel"
-        >
-          {{ user.firstName.charAt(0) }}{{ user.lastName.charAt(0) }}
-        </text>
-      </g>
+      <ng-container *ngIf="user.score <= 1000"> <!-- Add this condition -->
+        <g id="user_{{index}}" [attr.data-name]="'user_' + index"
+           [attr.transform]="'translate(' + calculateTransform(user.score).tx + ',' + calculateTransform(user.score).ty + ')'">
+          <circle
+            class="user"
+            [attr.cx]="calculatePosition(user.score).cx"
+            [attr.cy]="calculatePosition(user.score).cy"
+            r="12"
+            matTooltip="{{ user.firstName }} {{ user.lastName }} - Score: {{ user.score }}"
+            matTooltipPosition="above"
+          />
+          <text
+            [attr.x]="calculatePosition(user.score).cx"
+            [attr.y]="calculatePosition(user.score).cy"
+            class="userLabel"
+          >
+            {{ user.firstName.charAt(0) }}{{ user.lastName.charAt(0) }}
+          </text>
+        </g>
+      </ng-container>
     </ng-container>
 
 
