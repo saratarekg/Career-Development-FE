@@ -1,0 +1,24 @@
+<table class="example-full-width" cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>First name</mat-label>
+        <input
+          matInput
+          [formControl]="firstNameFormControl"
+          (input)="onChangeFirstName()"
+        />
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label> Last Name</mat-label>
+        <input
+          matInput
+          [formControl]="lastNameFormControl"
+          (input)="onChangeLastName()"
+        />
+      </mat-form-field>
+    </td>
+  </tr>
+</table>

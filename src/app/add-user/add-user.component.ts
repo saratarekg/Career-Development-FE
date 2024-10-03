@@ -7,6 +7,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { NgIf } from "@angular/common";
 
+
 @Component({
   selector: 'app-add-user',
   standalone: true,
@@ -19,15 +20,15 @@ import { NgIf } from "@angular/common";
   ],
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css'] // Corrected from styleUrl to styleUrls
+
 })
 export class AddUserComponent {
-
   newUser: User = {
     firstName: '',
     lastName: '',
     email: '',
-    password: "",
-    phone: ""
+    password: '',
+    phone: '',
   };
 
   constructor(private userService: UserService) {}
@@ -51,5 +52,6 @@ export class AddUserComponent {
     } else {
       console.warn('Form is not valid. Please check the errors and try again.');
     }
+
   }
 }

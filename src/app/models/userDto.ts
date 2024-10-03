@@ -11,6 +11,15 @@ export interface UsersDTO {
   firstName: string;
   lastName: string;
   email: string;
+  password: string;
+  phone: string;
+}
+
+export interface UsersSignUpDTO {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
   phone: string;
 }
 
@@ -38,7 +47,4 @@ export interface UserJourneyDTO {
   firstName: string;
   lastName: string;
   score: number;
-
 }
-
-

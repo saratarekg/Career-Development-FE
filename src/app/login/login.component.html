@@ -1,0 +1,8 @@
+<h1 class="d-flex justify-content-center align-items-center">LogIn</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form-width">
+  @if (errorMessage.length > 0) { <mat-error>{{ errorMessage }}</mat-error> }
+
+  <app-shared-email [emailFormControl]="emailFormControl" [isSignUp]="false" />
+  <app-login-password [loginFormGroup]="loginForm" />
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

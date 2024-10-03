@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {User} from "../../models/user";
-import {environment} from "../../../environment";
+
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { User } from '../../models/userDto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private usersAPI = environment.usersAPI;
@@ -18,7 +18,9 @@ export class UserService {
   // example
   // Get user by ID
   getUserById(id: string): Observable<User> {
-    return this.http.get<User>(`${this.usersAPI}/${id}`);
+    return this.http.get<User>(`${this.usersAPI}/${id}`, {
+      withCredentials: true,
+    });
   }
 
   addUser(user: User): Observable<User> {
@@ -26,11 +28,15 @@ export class UserService {
   }
 
   freezeUserByEmail(email: string): Observable<string> {
-    return this.http.put<string>(`${this.usersAPI}/freeze`, null, { params: { email } });
+    return this.http.put<string>(`${this.usersAPI}/freeze`, null, {
+      params: { email },
+    });
   }
 
   unfreezeUserByEmail(email: string): Observable<string> {
-    return this.http.put<string>(`${this.usersAPI}/unfreeze`, null, { params: { email } });
+    return this.http.put<string>(`${this.usersAPI}/unfreeze`, null, {
+      params: { email },
+    });
   }
 
   deleteUserByEmail(email: string): Observable<string> {
@@ -38,11 +44,20 @@ export class UserService {
   }
 
   resetPassword(email: string, newPassword: string): Observable<string> {
-    return this.http.put<string>(`${this.usersAPI}/resetPassword/${email}`, null, { params: { newPassword } });
+    return this.http.put<string>(
+      `${this.usersAPI}/resetPassword/${email}`,
+      null,
+      { params: { newPassword } }
+    );
   }
 
-  assignManagerByEmail(userEmail: string, managerEmail: string): Observable<string> {
-    return this.http.put<string>(`${this.usersAPI}/assignManager`, null, { params: { userEmail, managerEmail } });
+  assignManagerByEmail(
+    userEmail: string,
+    managerEmail: string
+  ): Observable<string> {
+    return this.http.put<string>(`${this.usersAPI}/assignManager`, null, {
+      params: { userEmail, managerEmail },
+    });
   }
 
   getAllDepartments(): Observable<any> {
@@ -56,5 +71,6 @@ export class UserService {
   assignTitleToUser(email: string, titleId: string): Observable<any> {
     return this.http.put(`${this.usersAPI}/assignTitle?email=${email}&titleId=${titleId}`, null);
   }
+
 
 }

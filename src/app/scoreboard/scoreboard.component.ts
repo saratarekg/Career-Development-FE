@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { UserScoreboardDTO } from "../models/user";
-import { ScoreboardService } from "../services/scoreboard/scoreboard.service";
-import { MatTableModule } from "@angular/material/table";
+import { UserScoreboardDTO } from '../models/userDto';
+import { ScoreboardService } from '../services/scoreboard/scoreboard.service';
+import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table'; // Import for data source
 import { MatSort, MatSortModule } from '@angular/material/sort'; // Import for sorting
-import {NgClass, NgIf} from "@angular/common";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
-import {MatIcon} from "@angular/material/icon";
+import { NgClass, NgIf } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-scoreboard',
@@ -19,11 +19,10 @@ import {MatIcon} from "@angular/material/icon";
     MatInputModule,
     MatSortModule,
     MatIcon,
-    NgIf
+    NgIf,
   ],
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.css'],
-
 })
 export class ScoreboardComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['rank', 'name', 'score', 'level'];
@@ -43,16 +42,20 @@ export class ScoreboardComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
 
-    this.dataSource.sort.sort({ id: 'score', start: 'desc', disableClear: true });
+    this.dataSource.sort.sort({
+      id: 'score',
+      start: 'desc',
+      disableClear: true,
+    });
   }
 
   loadScoreboard(): void {
     this.scoreboardService.getScoreboard(this.page, this.size).subscribe(
-      data => {
+      (data) => {
         this.userScoreboard = data;
         this.dataSource.data = this.userScoreboard;
       },
-      error => {
+      (error) => {
         console.error('Error fetching scoreboard', error);
       }
     );
