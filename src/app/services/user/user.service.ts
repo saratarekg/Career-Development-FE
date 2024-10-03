@@ -9,6 +9,9 @@ import {environment} from "../../../environment";
 })
 export class UserService {
   private usersAPI = environment.usersAPI;
+  private titlesAPI = environment.titlesAPI;
+  private departmentsAPI = environment.departmentsAPI;
+
 
   constructor(private http: HttpClient) {}
 
@@ -40,6 +43,18 @@ export class UserService {
 
   assignManagerByEmail(userEmail: string, managerEmail: string): Observable<string> {
     return this.http.put<string>(`${this.usersAPI}/assignManager`, null, { params: { userEmail, managerEmail } });
+  }
+
+  getAllDepartments(): Observable<any> {
+    return this.http.get(`${this.departmentsAPI}`);
+  }
+
+  getTitlesByDepartment(departmentId: string): Observable<any> {
+    return this.http.get(`${this.titlesAPI}/getByDepartment/${departmentId}`);
+  }
+
+  assignTitleToUser(email: string, titleId: string): Observable<any> {
+    return this.http.put(`${this.usersAPI}/assignTitle?email=${email}&titleId=${titleId}`, null);
   }
 
 }
