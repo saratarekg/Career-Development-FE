@@ -23,7 +23,8 @@ export class JourneyMapService {
   getUserProgress(page: number, size: number): Observable<any[]> {
     return this.http
       .get<PaginatedUsers>(
-        `${this.usersAPI}/allUsersPaginated?page=${page}&size=${size}`
+        `${this.usersAPI}/allUsersPaginated?page=${page}&size=${size}`,
+        { withCredentials: true }
       )
       .pipe(
         switchMap((users) => {
@@ -48,7 +49,9 @@ export class JourneyMapService {
 
   private getScore(userId: string): Observable<UserScoresDTO> {
     return this.http
-      .get<UserScoresDTO>(`${this.usersScoresAPI}/${userId}`)
+      .get<UserScoresDTO>(`${this.usersScoresAPI}/${userId}`, {
+        withCredentials: true,
+      })
       .pipe(
         catchError((err) => {
           console.error(`Error fetching score for user with ID ${userId}`, err);

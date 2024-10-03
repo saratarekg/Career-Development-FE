@@ -16,6 +16,8 @@ export class UserService {
   // example
   // Get user by ID
   getUserById(id: string): Observable<User> {
-    return this.http.get<User>(`${this.usersAPI}/${id}`);
+    return this.http.get<User>(`${this.usersAPI}/${id}`, {
+      withCredentials: true,
+    });
   }
 }

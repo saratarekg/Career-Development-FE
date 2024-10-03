@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { LoginService } from '../../../services/login.service';
+import { CustomErrorStateMatcher } from '../../../shared/custom-error-matcher';
 
 @Component({
   selector: 'app-login-password',
@@ -24,6 +25,8 @@ export class PasswordComponent {
 
   @Input({ required: true }) loginFormGroup!: FormGroup;
   // @Input({ required: true }) passwordFormControl!: FormControl;
+
+  matcher = new CustomErrorStateMatcher();
 
   hide = signal(true);
   clickEvent(event: MouseEvent) {

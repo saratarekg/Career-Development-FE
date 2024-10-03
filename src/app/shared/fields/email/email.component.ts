@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SignUpService } from '../../../services/sign-up.service';
 import { LoginService } from '../../../services/login.service';
+import { CustomErrorStateMatcher } from '../../custom-error-matcher';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -49,7 +50,7 @@ export class EmailComponent {
   @Input({ required: true }) emailFormControl!: FormControl;
   @Input({ required: true }) isSignUp!: boolean;
 
-  matcher = new MyErrorStateMatcher();
+  matcher = new CustomErrorStateMatcher();
 
   onChangeEmail = () => {
     if (this.isSignUp) {
