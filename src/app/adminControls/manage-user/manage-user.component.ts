@@ -5,7 +5,7 @@ import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-to
 import { MatInputModule } from "@angular/material/input";
 import { MatButton } from "@angular/material/button";
 import { NgIf } from "@angular/common";
-import { UserService } from "../services/user/user.service"; // Import UserService
+import { UserService } from "../../services/user/user.service"; // Import UserService
 import { HttpErrorResponse } from '@angular/common/http'; // To handle HTTP errors
 
 @Component({

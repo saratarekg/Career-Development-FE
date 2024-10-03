@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { UserScoreboardDTO } from '../models/userDto';
-import { ScoreboardService } from '../services/scoreboard/scoreboard.service';
+import { UserScoreboardDTO } from '../../models/userDto';
+import { ScoreboardService } from '../../services/scoreboard/scoreboard.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table'; // Import for data source
 import { MatSort, MatSortModule } from '@angular/material/sort'; // Import for sorting

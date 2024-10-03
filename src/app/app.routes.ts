@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-in/sign-up.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 export const routes: Routes = [
@@ -23,8 +22,8 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./home-page/home-page.component').then(
-        (m) => m.HomePageComponent
+      import('./home/homepage/homepage.component').then(
+        (m) => m.HomepageComponent
       ),
     canActivate: [AuthGuardService],
   },
@@ -36,9 +35,11 @@ export const routes: Routes = [
   {
     path: 'admin',
     loadComponent: () =>
-      import('./admin-page/admin-page.component').then(
+      import('./adminControls/admin-page/admin-page.component').then(
         (m) => m.AdminPageComponent
       ),
+    canActivate: [AuthGuardService],
+
   },
   {
     path: '**',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { JourneyMapService } from '../services/journeyMap/journeyMap.service';
-import { UserJourneyDTO } from '../models/userDto';
+import { JourneyMapService } from '../../services/journeyMap/journeyMap.service';
+import { UserJourneyDTO } from '../../models/userDto';
 import { NgForOf, NgIf, NgStyle } from '@angular/common';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatIcon } from '@angular/material/icon';

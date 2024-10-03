@@ -9,6 +9,7 @@ import {AddUserComponent} from "../add-user/add-user.component";
 import {ManageUserComponent} from "../manage-user/manage-user.component";
 import {ResetPasswordComponent} from "../reset-password/reset-password.component";
 import {AssignTitleComponent} from "../assign-title/assign-title.component";
+import {AssignManagerComponent} from "../assign-manager/assign-manager.component";
 
 @Component({
   selector: 'app-admin-page',
@@ -24,7 +25,8 @@ import {AssignTitleComponent} from "../assign-title/assign-title.component";
     ManageUserComponent,
 
     ResetPasswordComponent,
-    AssignTitleComponent
+    AssignTitleComponent,
+    AssignManagerComponent
   ],
 
   templateUrl: './admin-page.component.html',

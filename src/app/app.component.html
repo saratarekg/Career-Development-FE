@@ -1,15 +1,22 @@
-<mat-card-header>
-  <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
-</mat-card-header>
-<div class="container d-flex">
-  <a
-    routerLink="/login"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    >Login</a
-  >
-  <a routerLink="/signup" routerLinkActive="active">Register</a>
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-</div>
+<mat-toolbar class="transparent-toolbar">
+  <mat-card-header>
+    <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
+  </mat-card-header>
+  <span class="spacer"></span>
+  <nav>
+    <a
+      mat-button
+      routerLink="/login"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >Login</a>
+    <a mat-button routerLink="/signup" routerLinkActive="active">Register</a>
+    <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+    <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
 
+  </nav>
+</mat-toolbar>
+
+<div class="container">
 <router-outlet />
+</div>

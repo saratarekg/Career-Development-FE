@@ -1,11 +1,11 @@
 <mat-card appearance="outlined" >
   <mat-card-header>
     <mat-card-title>Admin Controls</mat-card-title>
-    <mat-card-subtitle>Manage users, settings, and system preferences</mat-card-subtitle>
+    <mat-card-subtitle  class="subtitle">Manage users, settings, and system preferences.</mat-card-subtitle>
   </mat-card-header>
 </mat-card>
 
-<div class="example-action-buttons">
+<div>
   <button mat-button (click)="accordion().openAll()">Expand All</button>
   <button mat-button (click)="accordion().closeAll()">Collapse All</button>
 </div>
@@ -25,7 +25,7 @@
 
   <mat-expansion-panel>
     <mat-expansion-panel-header>
-      <mat-panel-title> Manage User Title & Department </mat-panel-title>
+      <mat-panel-title> Assign User Title & Department </mat-panel-title>
       <mat-panel-description>
         Enter user email and choose a department and title.
         <mat-icon>badge</mat-icon>
@@ -34,6 +34,20 @@
 
     <app-assign-title/>
   </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Assign Manager </mat-panel-title>
+      <mat-panel-description>
+        Enter user email and manager email.
+        <mat-icon>supervisor_account</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+<app-assign-manager/>
+  </mat-expansion-panel>
+
 
   <mat-expansion-panel>
     <mat-expansion-panel-header>
