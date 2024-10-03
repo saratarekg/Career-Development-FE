@@ -4,8 +4,9 @@ import {UserService} from "../../services/user/user.service";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {MatOption, MatSelect} from "@angular/material/select";
+import {MatOption, MatSelect, MatSelectModule} from "@angular/material/select";
 import {NgForOf, NgIf} from "@angular/common";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-assign-title',
@@ -13,15 +14,13 @@ import {NgForOf, NgIf} from "@angular/common";
   standalone: true,
   styleUrls: ['./assign-title.component.css'],
   imports: [
-    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule,
-    MatSelect,
-    MatOption,
+    MatSelectModule,
     NgForOf,
-    NgIf
+    NgIf,
+    ReactiveFormsModule
   ]
 })
 export class AssignTitleComponent implements OnInit {
@@ -43,18 +42,28 @@ export class AssignTitleComponent implements OnInit {
     });
   }
 
-  onDepartmentChange() {
-    const departmentId = this.assignTitleForm.get('department')?.value;
+  onDepartmentChange(event: any) {
+    this.assignTitleForm.patchValue({
+      department: event.value
+    });
+    const departmentId = event.value;
+    console.log('Selected Department ID:', departmentId);
     this.userService.getTitlesByDepartment(departmentId).subscribe(data => {
       this.titles = data;
     });
   }
+
+
 
   assignTitle() {
     const email = this.assignTitleForm.get('email')?.value;
     const titleId = this.assignTitleForm.get('title')?.value;
     this.userService.assignTitleToUser(email, titleId).subscribe(response => {
       alert(response);
-    });
+      this.assignTitleForm.reset();
+    },
+      (error: HttpErrorResponse) => {
+        alert(`Error assigning title: ${error.message}`);
+      });
   }
 }

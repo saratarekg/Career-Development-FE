@@ -15,7 +15,6 @@ import {NgIf} from "@angular/common";
 })
 export class ResetPasswordComponent {
   resetForm: FormGroup;
-  message: string | undefined;
 
   constructor(private fb: FormBuilder, private userService: UserService) {
 
@@ -29,11 +28,11 @@ export class ResetPasswordComponent {
     const { email, newPassword } = this.resetForm.value;
     this.userService.resetPassword(email, newPassword).subscribe(
       response => {
-        this.message = response;
+        alert(response);
         this.resetForm.reset();
       },
       error => {
-        this.message = 'Error resetting password';
+        alert(`Error resetting password: ${error.message}`);
       }
     );
   }

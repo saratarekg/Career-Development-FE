@@ -26,7 +26,6 @@ import { HttpErrorResponse } from '@angular/common/http'; // To handle HTTP erro
 })
 export class ManageUserComponent implements OnInit {
   userForm: FormGroup;
-  message: string = '';
   selectedAction: 'freeze' | 'unfreeze' | 'delete' = 'freeze';
 
   constructor(private fb: FormBuilder, private userService: UserService) {
@@ -38,7 +37,6 @@ export class ManageUserComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    if (this.userForm.valid) {
       const email = this.userForm.get('email')?.value;
       switch (this.selectedAction) {
         case 'freeze':
@@ -51,17 +49,17 @@ export class ManageUserComponent implements OnInit {
           this.deleteUser(email);
           break;
       }
-    }
+
   }
 
   freezeUser(email: string) {
     this.userService.freezeUserByEmail(email).subscribe(
       response => {
-        this.message = response;
+        alert(response);
         this.userForm.reset();
       },
       (error: HttpErrorResponse) => {
-        this.message = `Error freezing user: ${error.message}`;
+        alert(`Error freezing user: ${error.message}`);
       }
     );
   }
@@ -69,11 +67,11 @@ export class ManageUserComponent implements OnInit {
   unfreezeUser(email: string) {
     this.userService.unfreezeUserByEmail(email).subscribe(
       response => {
-        this.message = response;
+        alert(response);
         this.userForm.reset();
       },
       (error: HttpErrorResponse) => {
-        this.message = `Error unfreezing user: ${error.message}`;
+        alert(`Error unfreezing user: ${error.message}`);
       }
     );
   }
@@ -81,17 +79,16 @@ export class ManageUserComponent implements OnInit {
   deleteUser(email: string) {
     this.userService.deleteUserByEmail(email).subscribe(
       response => {
-        this.message = response;
+        alert(response);
         this.userForm.reset();
       },
       (error: HttpErrorResponse) => {
-        this.message = `Error deleting user: ${error.message}`;
+        alert(`Error deleting user: ${error.message}`);
       }
     );
   }
 
   setAction(action: 'freeze' | 'unfreeze' | 'delete') {
     this.selectedAction = action;
-    this.userForm.reset();
   }
 }

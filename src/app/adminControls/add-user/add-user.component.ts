@@ -19,7 +19,7 @@ import {User} from "../../models/userDto";
     NgIf
   ],
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css'] // Corrected from styleUrl to styleUrls
+  styleUrls: ['./add-user.component.css']
 
 })
 export class AddUserComponent {
@@ -42,11 +42,11 @@ export class AddUserComponent {
     if (userForm.valid) {
       this.userService.addUser(this.newUser).subscribe(
         response => {
-          console.log('User added successfully:', response);
+          alert('User added successfully:');
           userForm.reset();
         },
         error => {
-          console.error('Error adding user:', error);
+          alert(`Error adding user: ${error.message}`);
         }
       );
     } else {

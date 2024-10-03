@@ -15,11 +15,12 @@
   <div class="user-form-grid">
     <mat-form-field appearance="fill">
       <mat-label>Department</mat-label>
-      <mat-select formControlName="department" (selectionChange)="onDepartmentChange()">
+      <mat-select formControlName="department" (selectionChange)="onDepartmentChange($event)">
         <mat-option *ngFor="let department of departments" [value]="department.id">
           {{ department.name }}
         </mat-option>
       </mat-select>
+
       <mat-error *ngIf="assignTitleForm.get('department')?.hasError('required')">
         Department is required.
       </mat-error>

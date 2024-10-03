@@ -27,7 +27,6 @@ import {NgForOf, NgIf} from "@angular/common";
 })
 export class AssignManagerComponent {
   assignManagerForm: FormGroup;
-  message: string = '';
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.assignManagerForm = this.fb.group({
@@ -41,11 +40,11 @@ export class AssignManagerComponent {
       const { userEmail, managerEmail } = this.assignManagerForm.value;
       this.userService.assignManagerByEmail(userEmail, managerEmail).subscribe(
         response => {
-          this.message = response;
-          this.assignManagerForm.reset(); // Reset form on success
+          alert(response);
+          this.assignManagerForm.reset();
         },
         (error: HttpErrorResponse) => {
-          this.message = `Error assigning manager: ${error.message}`;
+          alert(`Error assigning manager: ${error.message}`);
         }
       );
     }
