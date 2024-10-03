@@ -20,4 +20,41 @@ export class UserService {
       withCredentials: true,
     });
   }
+
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.usersAPI}/add`, user);
+  }
+
+  freezeUserByEmail(email: string): Observable<string> {
+    return this.http.put<string>(`${this.usersAPI}/freeze`, null, {
+      params: { email },
+    });
+  }
+
+  unfreezeUserByEmail(email: string): Observable<string> {
+    return this.http.put<string>(`${this.usersAPI}/unfreeze`, null, {
+      params: { email },
+    });
+  }
+
+  deleteUserByEmail(email: string): Observable<string> {
+    return this.http.delete<string>(`${this.usersAPI}/deleteByEmail/${email}`);
+  }
+
+  resetPassword(email: string, newPassword: string): Observable<string> {
+    return this.http.put<string>(
+      `${this.usersAPI}/resetPassword/${email}`,
+      null,
+      { params: { newPassword } }
+    );
+  }
+
+  assignManagerByEmail(
+    userEmail: string,
+    managerEmail: string
+  ): Observable<string> {
+    return this.http.put<string>(`${this.usersAPI}/assignManager`, null, {
+      params: { userEmail, managerEmail },
+    });
+  }
 }

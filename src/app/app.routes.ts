@@ -22,13 +22,23 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomepageComponent,
+    loadComponent: () =>
+      import('./home-page/home-page.component').then(
+        (m) => m.HomePageComponent
+      ),
     canActivate: [AuthGuardService],
   },
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
+  },
+  {
+    path: 'admin',
+    loadComponent: () =>
+      import('./admin-page/admin-page.component').then(
+        (m) => m.AdminPageComponent
+      ),
   },
   {
     path: '**',

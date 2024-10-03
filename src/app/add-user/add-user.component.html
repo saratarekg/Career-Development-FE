@@ -1,0 +1,34 @@
+<form (ngSubmit)="addUser()" class="user-form-grid">
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput id="firstName" [(ngModel)]="newUser.firstName" name="firstName" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput id="lastName" [(ngModel)]="newUser.lastName" name="lastName" required>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input matInput id="phone" [(ngModel)]="newUser.phone" name="phone" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput id="email" [(ngModel)]="newUser.email" name="email" required type="email">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput id="password" [(ngModel)]="newUser.password" name="password" required type="password">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit">Add User</button>
+</form>

@@ -7,3 +7,9 @@ body { margin: 0;
   background: rgba(124, 139, 213, 0.25);
   padding: 20px;
 }
+
+.user-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
