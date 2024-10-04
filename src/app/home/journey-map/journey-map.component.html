@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 500">
+  <defs>
+    <clipPath id="clip-Custom_Size_1">
+      <rect width="300" height="300"/>
+    </clipPath>
+  </defs>
+  <g id="Custom_Size_1" data-name="Custom Size – 1" >
+    <rect class="cls-container" width="300" height="300"/>
+
+    <path id="Path_1" stroke-dasharray="3" data-name="Path 1" class="cls-path"
+          d="M24.621,20.759s227.3-30.868,227.44,35S57.809,52.051,52.528,108.6
+         s181.931,3.044,188.138,66.8c-2.136,14.672,16.033,76.56-78.386,56.463
+         S42.461,229.014,47.672,249c"
+          transform="translate(11 17)"/>
+
+    <g id="Guru" data-name="Guru" transform="translate(20 25)" >
+      <circle class=" guru" cx="15.5" cy="15.5" r="20" />
+      <text x="40" y="30" class="label">Guru</text>
+      <image href="guru.png" x="5" y="5" width="22" height="22"/>
+    </g>
+
+    <g id="Legend" data-name="Legend" transform="translate(248 51)">
+      <circle class=" legend" cx="15.5" cy="15.5" r="20"/>
+      <text x="-45" y="20" class="label">Legend</text>
+      <image href="legend.png" x="5" y="5" width=22 height="22"/>
+    </g>
+
+    <g id="Pioneer" data-name="Pioneer" transform="translate(46 103)" >
+      <circle class=" pioneer" cx="15.5" cy="15.5" r="20"/>
+      <text x="40" y="25" class="label">Pioneer</text>
+      <image href="pioneer.png" x="3" y="3" width=25 height="25"/>
+    </g>
+
+    <g id="Dynamo" data-name="Dynamo" transform="translate(232 162)" >
+      <circle class=" dynamo" cx="15.5" cy="15.5" r="20"/>
+      <text x="-50" y="25" class="label">Dynamo</text>
+      <image href="dynamo.png" x="3" y="3" width=25 height="25"/>
+    </g>
+
+    <g id="Explorer" data-name="Explorer" transform="translate(46 235)">
+      <circle class=" explorer" cx="15.5" cy="15.5" r="20"/>
+      <text x="-5" y="50" class="label">Explorer</text>
+      <image href="explorer.png" x="5" y="5" width="22" height="22"/>
+
+    </g>
+
+    <ng-container *ngFor="let user of users; let index = index">
+      <ng-container *ngIf="user.score <= 1000"> <!-- Add this condition -->
+        <g id="user_{{index}}" [attr.data-name]="'user_' + index"
+           [attr.transform]="'translate(' + calculateTransform(user.score).tx + ',' + calculateTransform(user.score).ty + ')'">
+          <circle
+            class="user"
+            [attr.cx]="calculatePosition(user.score).cx"
+            [attr.cy]="calculatePosition(user.score).cy"
+            r="12"
+            matTooltip="{{ user.firstName }} {{ user.lastName }} - Score: {{ user.score }}"
+            matTooltipPosition="above"
+          />
+          <text
+            [attr.x]="calculatePosition(user.score).cx"
+            [attr.y]="calculatePosition(user.score).cy"
+            class="userLabel"
+          >
+            {{ user.firstName.charAt(0) }}{{ user.lastName.charAt(0) }}
+          </text>
+        </g>
+      </ng-container>
+    </ng-container>
+
+
+  </g>
+</svg>
+

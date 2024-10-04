@@ -1,0 +1,38 @@
+<mat-toolbar class="transparent-toolbar">
+  <mat-card-header>
+    <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
+  </mat-card-header>
+
+  <span class="spacer"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="hamburger-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/login" routerLinkActive="active">
+      Login
+    </button>
+    <button mat-menu-item routerLink="/signup" routerLinkActive="active">
+      Register
+    </button>
+    <button mat-menu-item routerLink="/home" routerLinkActive="active">
+      Home
+    </button>
+    <button mat-menu-item routerLink="/admin" routerLinkActive="active">
+      Admin
+    </button>
+  </mat-menu>
+
+  <nav class="desktop-nav">
+    <a
+      mat-button
+      routerLink="/login"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >Login</a>
+    <a mat-button routerLink="/signup" routerLinkActive="active">Register</a>
+    <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+    <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
+  </nav>
+</mat-toolbar>

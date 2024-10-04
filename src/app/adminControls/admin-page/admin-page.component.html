@@ -1,0 +1,77 @@
+<mat-card appearance="outlined" >
+  <mat-card-header>
+    <mat-card-title class="title">Admin Controls</mat-card-title>
+    <mat-card-subtitle  class="subtitle">Manage users, settings, and system preferences.</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<div>
+  <button mat-button (click)="accordion().openAll()">Expand All</button>
+  <button mat-button (click)="accordion().closeAll()">Collapse All</button>
+</div>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle"> Register new user </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+     Enter user details.
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-add-user/>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle"> Assign User Title & Department </mat-panel-title>
+     <mat-panel-description class="panelDescription">
+          Enter user email and choose a department and title.
+        <mat-icon>badge</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-assign-title/>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle"> Assign Manager </mat-panel-title>
+     <mat-panel-description class="panelDescription">
+         Enter user email and manager email.
+        <mat-icon>supervisor_account</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+<app-assign-manager/>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle"> Reset User Password </mat-panel-title>
+     <mat-panel-description class="panelDescription">
+           Enter user email and password.
+        <mat-icon>password</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-reset-password/>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle"> Manage User Account </mat-panel-title>
+     <mat-panel-description class="panelDescription">
+          Enter user email and choose action.
+        <mat-icon>person</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-freeze-user/>
+  </mat-expansion-panel>
+
+
+</mat-accordion>

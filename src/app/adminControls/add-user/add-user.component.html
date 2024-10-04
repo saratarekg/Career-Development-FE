@@ -1,0 +1,50 @@
+<form (ngSubmit)="addUser(userForm)" #userForm="ngForm" class="user-form-grid">
+<div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput id="firstName" [(ngModel)]="newUser.firstName" name="firstName" required>
+      <mat-error *ngIf="userForm.submitted && !newUser.firstName">
+        First Name is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput id="lastName" [(ngModel)]="newUser.lastName" name="lastName" required>
+      <mat-error *ngIf="userForm.submitted && !newUser.lastName">
+        Last Name is required.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input matInput id="phone" [(ngModel)]="newUser.phone" name="phone" required>
+      <mat-error *ngIf="userForm.submitted && !newUser.phone">
+        Phone is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput id="email" [(ngModel)]="newUser.email" name="email" required type="email">
+      <mat-error *ngIf="userForm.submitted && (!newUser.email || !isEmailValid(newUser.email))">
+        <ng-container *ngIf="!newUser.email">Email is required.</ng-container>
+        <ng-container *ngIf="newUser.email && !isEmailValid(newUser.email)">Invalid email format.</ng-container>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput id="password" [(ngModel)]="newUser.password" name="password" required type="password">
+      <mat-error *ngIf="userForm.submitted && !newUser.password">
+        Password is required.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit">Add User</button>
+</form>

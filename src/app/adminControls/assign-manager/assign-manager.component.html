@@ -1,0 +1,26 @@
+<form [formGroup]="assignManagerForm" (ngSubmit)="assignManager()">
+  <div class="user-form-grid">
+    <mat-form-field appearance="fill">
+      <mat-label>User Email</mat-label>
+      <input matInput formControlName="userEmail" required />
+      <mat-error *ngIf="assignManagerForm.get('userEmail')?.hasError('required')">
+        Email is required.
+      </mat-error>
+      <mat-error *ngIf="assignManagerForm.get('userEmail')?.hasError('email')">
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Manager Email</mat-label>
+      <input matInput formControlName="managerEmail" required />
+      <mat-error *ngIf="assignManagerForm.get('managerEmail')?.hasError('required')">
+        Email is required.
+      </mat-error>
+      <mat-error *ngIf="assignManagerForm.get('managerEmail')?.hasError('email')">
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit">Assign Manager</button>
+</form>

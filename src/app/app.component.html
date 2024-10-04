@@ -1,15 +1,4 @@
-<mat-card-header>
-  <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
-</mat-card-header>
-<div class="container d-flex">
-  <a
-    routerLink="/login"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    >Login</a
-  >
-  <a routerLink="/signup" routerLinkActive="active">Register</a>
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-</div>
-
+<app-navbar/>
+<div class="container">
 <router-outlet />
+</div>
