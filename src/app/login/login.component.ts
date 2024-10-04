@@ -35,6 +35,7 @@ export class LoginComponent {
 
   errorMessage = '';
   router = inject(Router);
+  isLoginMode = false;
 
   loginForm = new FormGroup({
     emailFormControl: new FormControl('', [
