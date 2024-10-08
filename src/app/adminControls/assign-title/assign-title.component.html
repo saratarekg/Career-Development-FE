@@ -11,12 +11,11 @@
       </mat-error>
     </mat-form-field>
   </div>
-
   <div class="user-form-grid">
     <mat-form-field appearance="fill">
       <mat-label>Department</mat-label>
       <mat-select formControlName="department" (selectionChange)="onDepartmentChange($event)">
-        <mat-option *ngFor="let department of departments" [value]="department.id">
+        <mat-option *ngFor="let department of departments" [value]="department.name">
           {{ department.name }}
         </mat-option>
       </mat-select>

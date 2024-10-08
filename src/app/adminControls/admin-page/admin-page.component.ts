@@ -10,6 +10,7 @@ import {ManageUserComponent} from "../manage-user/manage-user.component";
 import {ResetPasswordComponent} from "../reset-password/reset-password.component";
 import {AssignTitleComponent} from "../assign-title/assign-title.component";
 import {AssignManagerComponent} from "../assign-manager/assign-manager.component";
+import {AssignRoleComponent} from "../assign-role/assign-role.component";
 
 @Component({
   selector: 'app-admin-page',
@@ -26,7 +27,8 @@ import {AssignManagerComponent} from "../assign-manager/assign-manager.component
 
     ResetPasswordComponent,
     AssignTitleComponent,
-    AssignManagerComponent
+    AssignManagerComponent,
+    AssignRoleComponent
   ],
 
   templateUrl: './admin-page.component.html',

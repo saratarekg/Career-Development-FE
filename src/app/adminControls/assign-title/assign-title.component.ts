@@ -4,7 +4,7 @@ import {UserService} from "../../services/user/user.service";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {MatOption, MatSelect, MatSelectModule} from "@angular/material/select";
+import { MatSelectModule} from "@angular/material/select";
 import {NgForOf, NgIf} from "@angular/common";
 import {HttpErrorResponse} from "@angular/common/http";
 
@@ -20,7 +20,8 @@ import {HttpErrorResponse} from "@angular/common/http";
     MatSelectModule,
     NgForOf,
     NgIf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AssignTitleComponent implements OnInit {
@@ -36,6 +37,7 @@ export class AssignTitleComponent implements OnInit {
     });
   }
 
+
   ngOnInit() {
     this.userService.getAllDepartments().subscribe(data => {
       this.departments = data;
@@ -43,14 +45,27 @@ export class AssignTitleComponent implements OnInit {
   }
 
   onDepartmentChange(event: any) {
+    const departmentName = event.value;
     this.assignTitleForm.patchValue({
-      department: event.value
+      department: departmentName
     });
-    const departmentId = event.value;
-    console.log('Selected Department ID:', departmentId);
-    this.userService.getTitlesByDepartment(departmentId).subscribe(data => {
-      this.titles = data;
-    });
+
+    const selectedDepartment = this.departments.find(dept => dept.name === departmentName);
+    console.log('Departments Arrays:', this.departments);
+    console.log('Selected Department :', departmentName);
+
+    if (selectedDepartment) {
+      const departmentId = selectedDepartment.id;
+      console.log('Selected Department ID:', departmentId);
+
+      this.userService.getTitlesByDepartment(departmentId).subscribe(data => {
+        this.titles = data;
+      });
+
+
+    } else {
+      console.error('Department not found');
+    }
   }
 
 

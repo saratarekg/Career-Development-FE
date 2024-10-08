@@ -39,12 +39,12 @@ button {
 }
 
 button {
-  background-color: #9AC8CD;
-  color: black;
+  background-color: rgba(124, 139, 213, 0.51);
+  color: white;
 }
 
 button:hover {
-  background-color: cadetblue;
+  background-color: rgba(124, 139, 213, 0.72);
 }
 
 button:disabled {

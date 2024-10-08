@@ -1,0 +1,23 @@
+<form [formGroup]="assignRoleForm" (ngSubmit)="assignRole()">
+  <div class="user-form-grid">
+    <mat-form-field appearance="fill">
+      <mat-label>User Email</mat-label>
+      <input matInput formControlName="userEmail" required />
+      <mat-error *ngIf="assignRoleForm.get('userEmail')?.hasError('required')">
+        Email is required.
+      </mat-error>
+      <mat-error *ngIf="assignRoleForm.get('userEmail')?.hasError('email')">
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Role Id</mat-label>
+      <input matInput formControlName="roleId" required />
+      <mat-error *ngIf="assignRoleForm.get('roleId')?.hasError('required')">
+        Role Id is required.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit">Assign Role</button>
+</form>

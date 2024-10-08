@@ -1,27 +1,8 @@
 .container{
-  padding: 20px;
+  padding: 10px;
 }
 
 
 
-.sumerge-logo {
-    width: 20%;
-    object-fit: contain;
-  }
 
-
-  /*@import '@angular/material/prebuilt-themes/indigo-pink.css';*/
-
-body {
-  color: #333;
-  font-family: Lato, sans-serif;
-  padding: 50px;
-
-}
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
-  
 
