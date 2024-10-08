@@ -8,22 +8,24 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { AuthService } from './auth.service';
-import { filter, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuardService implements CanActivate {
+export class AdminGuardService implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): MaybeAsync<GuardResult> {
-    if (!this.authService.isLoggedIn()) {
-      this.router.navigate(['/login']);
-      return false;
+    if (this.authService.getIsAdmin() && this.authService.isLoggedIn()) {
+      return true;
+    } else if (this.authService.isLoggedIn()) {
+      this.router.navigate(['home']);
+    } else {
+      this.router.navigate(['login']);
     }
-    return true;
+    return false;
   }
 }

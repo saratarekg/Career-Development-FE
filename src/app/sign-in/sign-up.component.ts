@@ -9,16 +9,20 @@ import {
   FormGroup,
   ReactiveFormsModule,
   ValidationErrors,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { SignUpService } from '../services/sign-up.service';
 import { Router } from '@angular/router';
 
-const PasswordMatchValidator = (
+const PasswordMatchValidator: ValidatorFn = (
   control: AbstractControl
 ): ValidationErrors | null => {
   const password = control.get('passwordFormControl')?.value;
   const confirmPassword = control.get('confirmPasswordFormControl')?.value;
+  if (!password || !confirmPassword) {
+    return { passwordEmpty: true };
+  }
   return password === confirmPassword ? null : { passwordMatch: true };
 };
 

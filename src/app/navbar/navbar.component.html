@@ -22,17 +22,34 @@
     <button mat-menu-item routerLink="/admin" routerLinkActive="active">
       Admin
     </button>
+    <button mat-menu-item routerLink="/login" routerLinkActive="active">
+      Logout
+    </button>
   </mat-menu>
 
   <nav class="desktop-nav">
+    @if (!isLoggedIn) {
     <a
       mat-button
       routerLink="/login"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-    >Login</a>
+      >Login</a
+    >
     <a mat-button routerLink="/signup" routerLinkActive="active">Register</a>
+    } @else {
     <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+    @if (isAdmin){
     <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
+    }
+    <a
+      mat-button
+      class="custom-primary"
+      routerLink="/login"
+      routerLinkActive="active"
+      (click)="logout()"
+      >Logout</a
+    >
+    }
   </nav>
 </mat-toolbar>

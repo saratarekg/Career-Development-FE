@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-in/sign-up.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AdminGuardService } from './services/admin-guard.service';
 
 export const routes: Routes = [
   {
@@ -38,8 +39,7 @@ export const routes: Routes = [
       import('./adminControls/admin-page/admin-page.component').then(
         (m) => m.AdminPageComponent
       ),
-    canActivate: [AuthGuardService],
-
+    canActivate: [AdminGuardService],
   },
   {
     path: '**',

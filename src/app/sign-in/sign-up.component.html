@@ -1,4 +1,3 @@
-<h1 class="title">Sign Up</h1>
 <div class="container d-flex justify-content-center">
   <form class="form-width" (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
     <h4>Join us now and sign up!</h4>
@@ -9,12 +8,14 @@
     <app-shared-email [emailFormControl]="emailFormControl" [isSignUp]="true" />
     <app-sign-in-password [passwords]="passwordsFormGroup" />
     <app-sign-in-phone [phoneFormControl]="phoneFormControl" />
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="signUpForm.invalid"
-    >
-      Submit
-    </button>
+    <div class="text-center">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="signUpForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
   </form>
 </div>

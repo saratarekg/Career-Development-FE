@@ -1,4 +1,3 @@
-<h1 class="d-flex justify-content-center align-items-center">LogIn</h1>
 <div class="container d-flex justify-content-center">
   <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form-width">
     <h4>Welcome back, please login!</h4>
@@ -9,12 +8,14 @@
       [isSignUp]="false"
     />
     <app-login-password [loginFormGroup]="loginForm" />
-    <button
-      class="btn btn-primary"
-      type="submit"
-      [disabled]="loginForm.invalid"
-    >
-      Submit
-    </button>
+    <div class="text-center">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
   </form>
 </div>

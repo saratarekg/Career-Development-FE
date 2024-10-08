@@ -18,6 +18,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 const PasswordMatchValidator = (
   control: AbstractControl
@@ -36,6 +37,7 @@ const PasswordMatchValidator = (
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './passwordGroup.component.html',

@@ -23,13 +23,12 @@ export class HttpService {
   }
 
   logInUser(loginDto: LoginDto): Observable<AuthResponse> {
-    return this.httpClient.post<AuthResponse>(
-      `${this.urlAuth}/login`,
-      loginDto,
-      {
+    const authResponse: Observable<AuthResponse> =
+      this.httpClient.post<AuthResponse>(`${this.urlAuth}/login`, loginDto, {
         withCredentials: true,
-      }
-    );
+      });
+    console.log(authResponse);
+    return authResponse;
   }
 
   isTokenValid(token: string): Observable<boolean> {

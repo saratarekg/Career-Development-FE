@@ -14,11 +14,4 @@ import { Router } from '@angular/router';
 export class HomepageComponent {
   constructor(private authService: AuthService) {}
   router = inject(Router);
-
-  logout() {
-    // Implement logout logic here
-    this.authService.logout();
-    this.router.navigate(['']);
-    console.log('User logged out');
-  }
 }

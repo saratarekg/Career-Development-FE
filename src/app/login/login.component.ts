@@ -57,6 +57,7 @@ export class LoginComponent {
     this.loginService.logIn().subscribe({
       next: (token) => {
         this.authService.setToken(token.accessToken);
+        this.authService.setIsAdmin(token.admin);
         this.errorMessage = '';
         this.router.navigate(['home']);
       },
