@@ -10,21 +10,29 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/login" routerLinkActive="active">
+    @if (!isLoggedIn) {
+      <button mat-menu-item routerLink="/login" routerLinkActive="active">
       Login
     </button>
+
     <button mat-menu-item routerLink="/signup" routerLinkActive="active">
-      Register
+      Sign Up
     </button>
-    <button mat-menu-item routerLink="/home" routerLinkActive="active">
-      Home
-    </button>
-    <button mat-menu-item routerLink="/admin" routerLinkActive="active">
-      Admin
-    </button>
-    <button mat-menu-item routerLink="/login" routerLinkActive="active">
-      Logout
-    </button>
+    } @else{
+      <button mat-menu-item routerLink="/home" routerLinkActive="active">
+        Home
+      </button>
+      @if (isAdmin){
+      <button mat-menu-item routerLink="/admin" routerLinkActive="active">
+        Admin
+      </button>
+      }
+      <button mat-menu-item routerLink="/login" routerLinkActive="active"
+              (click)="logout()">
+        Logout
+      </button>
+    }
+
   </mat-menu>
 
   <nav class="desktop-nav">

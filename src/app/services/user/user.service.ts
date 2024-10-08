@@ -99,11 +99,25 @@ export class UserService {
     });
   }
 
-  assignTitleToUser(email: string, titleId: string): Observable<any> {
+  assignTitleToUser(email: string, titleId: string): Observable<object> {
     return this.http.put(
       `${this.usersAPI}/assignTitle?email=${email}&titleId=${titleId}`,
       null,
-      { withCredentials: true }
+      { withCredentials: true,
+        responseType: 'text' as 'json'
+      },
     );
   }
+
+  assignRoleToUser(email: string, roleId: string): Observable<object> {
+    return this.http.put(
+      `${this.usersAPI}/assignRole?email=${email}&roleId=${roleId}`,
+      null,
+      { withCredentials: true,
+        responseType: 'text' as 'json'
+      },
+    );
+  }
+
+
 }

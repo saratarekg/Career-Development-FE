@@ -56,6 +56,8 @@ mat-toolbar a.active {
 }
 
 .custom-primary {
-  background-color: #007bff !important; /* Bootstrap primary color */
+  /*background-color: #007bff !important; !* Bootstrap primary color *!*/
+  background-color: rgba(124, 139, 213, 0.72);
+
   color: white !important;
 }

@@ -14,10 +14,10 @@ body { margin: 0;
 }
 
 
-.container {
-  display: block;
-  width: 800px;
-}
+/*.container {*/
+/*  display: block;*/
+/*  width: 800px;*/
+/*}*/
 
 .card{
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
@@ -35,19 +35,6 @@ li * {
   float: left;
 }
 
-
-button {
-  background: none;
-  border: none;
-  color: #888;
-  font-size: 15px;
-  width: 120px;
-  margin: 10px 0 0;
-  cursor: pointer;
-}
-button:hover {
-  color: #333;
-}
 
 h3, label[for='new-task'] {
   color: #333;

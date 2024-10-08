@@ -16,53 +16,52 @@ form {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   mat-form-field {
     width: 100%;
   }
-  
+
   input {
     padding: 10px;
     font-size: 16px;
     color: #333;
     width:100%
   }
-  
+
   mat-error {
     color: #e74c3c;
     font-size: 12px;
   }
-  
-  
+
+
   button {
     padding: 5px;
   }
-  
-  button {
-    background-color: #9AC8CD;
-    color: black;
-  }
-  
-  button:hover {
-    background-color: cadetblue;
-  }
-  
+
+button {
+  background-color: rgba(124, 139, 213, 0.51);
+  color: white;
+}
+
+button:hover {
+  background-color: rgba(124, 139, 213, 0.72);
+}
+
   button:disabled {
     background-color: #b0bec5;
     color: #fff;
     cursor: not-allowed;
   }
-  
-  
+
+
   /* Media Queries for Mobile Responsiveness */
   @media (max-width: 600px) {
     form {
       max-width: 100%;
       padding: 15px;
     }
-  
+
     button[mat-raised-button] {
       font-size: 14px;
     }
   }
-  
