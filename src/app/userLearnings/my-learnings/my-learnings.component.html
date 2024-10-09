@@ -1,0 +1,18 @@
+
+<div class="learning-list">
+  <user-learning-card
+    *ngFor="let learning of userLearningDetails"
+    [title]="learning.title"
+    [comment]="learning.comment"
+    [proof]="learning.proof"
+    [proofTypeName]="learning.proofTypeName"
+    [date]="learning.date"
+    [baseScore]="learning.baseScore"
+    [url]="learning.URL"
+    [approvalStatus]="learning.approvalStatus"
+    [hours]="learning.lengthInHours"
+  >
+  </user-learning-card>
+</div>
+
+<app-submit-learning-form/>

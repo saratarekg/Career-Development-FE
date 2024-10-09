@@ -19,6 +19,12 @@
       Sign Up
     </button>
     } @else{
+      <button mat-menu-item routerLink="/library" routerLinkActive="active">
+        Library
+      </button>
+      <button mat-menu-item routerLink="/myLearnings" routerLinkActive="active">
+        My Learnings
+      </button>
       <button mat-menu-item routerLink="/home" routerLinkActive="active">
         Home
       </button>
@@ -46,8 +52,12 @@
     >
     <a mat-button routerLink="/signup" routerLinkActive="active">Register</a>
     } @else {
-    <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
-    @if (isAdmin){
+      <a mat-button routerLink="/library" routerLinkActive="active">Library</a>
+      <a mat-button routerLink="/myLearnings" routerLinkActive="active">My Learnings</a>
+
+      <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+
+      @if (isAdmin){
     <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
     }
     <a

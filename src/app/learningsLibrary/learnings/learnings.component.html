@@ -1,0 +1,25 @@
+<div>
+  <p class="learning-title">Explore Sumerge's collection of learning resources.</p>
+</div>
+
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by Name, Subject, or Type</mat-label>
+    <input matInput [(ngModel)]="filter" (input)="applyFilters()">
+  </mat-form-field>
+</div>
+
+<div class="learning-list">
+  <app-learning-card
+    *ngFor="let learning of filteredLearnings"
+    [title]="learning.title"
+    [description]="learning.description"
+    [type]="learning.type"
+    [subject]="learning.subject"
+    [typeName]="learning.typeName"
+    [baseScore]="learning.baseScore"
+    [url]="learning.url"
+    [hours]="learning.lengthInHours"
+  >
+  </app-learning-card>
+</div>

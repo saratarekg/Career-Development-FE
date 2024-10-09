@@ -1,0 +1,95 @@
+
+<mat-card class="submit-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title >Just finished a learning?</mat-card-title>
+    <mat-card-subtitle class="title">Submit it now to get it approved and gain points!</mat-card-subtitle>
+
+  </mat-card-header>
+  <mat-card-content>
+
+  <form (ngSubmit)="submit()">
+
+  <!-- Select Existing Learning -->
+  <mat-form-field appearance="outline">
+    <mat-label>Learning</mat-label>
+    <mat-select [(ngModel)]="submitUserLearningDTO.learningId" name="learningId" (selectionChange)="onLearningSelect()">
+      <mat-option [value]="null">Create New Learning</mat-option> <!-- Option for creating a new learning -->
+      <mat-option *ngFor="let learning of learningOptions" [value]="learning.id" >
+        {{ learning.title }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- New Learning Details -->
+  <div *ngIf="!submitUserLearningDTO.learningId" class="form-grid"> <!-- Show these fields only if no existing learning is selected -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Learning Title</mat-label>
+      <input matInput [(ngModel)]="submitUserLearningDTO.title" name="learningTitle" [required]="!submitUserLearningDTO.learningId">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Learning Type</mat-label>
+      <mat-select [(ngModel)]="submitUserLearningDTO.learningTypeId" name="learningTypeId" [required]="!submitUserLearningDTO.learningId">
+        <mat-option *ngFor="let type of learningTypes" [value]="type.id">
+          {{ type.typeName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Learning Subject</mat-label>
+      <mat-select [(ngModel)]="submitUserLearningDTO.learningSubjectId" name="learningSubjectId" [required]="!submitUserLearningDTO.learningId">
+        <mat-option *ngFor="let subject of learningSubjects" [value]="subject.id">
+          {{ subject.subject }} - {{ subject.type }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>URL</mat-label>
+      <input matInput [(ngModel)]="submitUserLearningDTO.URL" name="URL" [required]="!submitUserLearningDTO.learningId">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Length in Hours</mat-label>
+      <input matInput type="number" [(ngModel)]="submitUserLearningDTO.lengthInHours" name="lengthInHours" [required]="!submitUserLearningDTO.learningId">
+    </mat-form-field>
+  </div>
+    <div *ngIf="!submitUserLearningDTO.learningId">
+    <mat-form-field appearance="outline" class="description">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="submitUserLearningDTO.description" name="description" [required]="!submitUserLearningDTO.learningId" ></textarea>
+    </mat-form-field>
+    </div>
+  <!-- Common Fields -->
+    <div class="form-grid">
+  <mat-form-field appearance="outline">
+    <mat-label>Proof</mat-label>
+    <input matInput [(ngModel)]="submitUserLearningDTO.proof" name="proof" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Proof Type</mat-label>
+    <mat-select [(ngModel)]="submitUserLearningDTO.proofTypeId" name="proofTypeId" required>
+      <mat-option *ngFor="let proofType of proofTypes" [value]="proofType.id">
+        {{ proofType.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Date</mat-label>
+    <input matInput [(ngModel)]="submitUserLearningDTO.date" name="date" [matDatepicker]="picker" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+    </div>
+
+  <button type="submit" mat-raised-button color="primary">Submit Learning</button>
+</form>
+
+  </mat-card-content>
+</mat-card>
