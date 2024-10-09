@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { HttpService } from './http.service';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({

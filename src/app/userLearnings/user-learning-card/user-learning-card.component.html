@@ -1,0 +1,21 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header class="header">
+    <mat-card-title class="title">{{ title }}</mat-card-title>
+    <mat-card-subtitle class="subtitle">
+      <a [href]="url" target="_blank">View Learning</a>
+    </mat-card-subtitle>
+    <div class="date">{{ date | date: 'longDate' }}</div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ comment }}</p>
+  </mat-card-content>
+
+  <mat-card-footer class="example-card-footer">
+    <mat-chip-set aria-label="Chihuahua traits">
+      <mat-chip>{{ hours }} hrs</mat-chip>
+      <mat-chip>{{ baseScore }} pts</mat-chip>
+    </mat-chip-set>
+    <span class="approval-badge" [ngClass]="getApprovalStatusClass(approvalStatus)">{{ approvalStatus }}</span>
+  </mat-card-footer>
+</mat-card>

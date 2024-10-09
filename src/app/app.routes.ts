@@ -3,7 +3,9 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-in/sign-up.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AdminGuardService } from './services/admin-guard.service';
-
+import {LearningsComponent} from "./learningsLibrary/learnings/learnings.component";
+import {SubmitLearningFormComponent} from "./userLearnings/submit-learning-form/submit-learning-form.component";
+import {MyLearningsComponent} from "./userLearnings/my-learnings/my-learnings.component";
 export const routes: Routes = [
   {
     path: 'login',
@@ -32,6 +34,16 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
+  },
+  {
+    path: 'library',
+    component: LearningsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'myLearnings',
+    component: MyLearningsComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'admin',

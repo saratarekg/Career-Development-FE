@@ -1,0 +1,39 @@
+.learning-list {
+  display: grid;
+  gap: 20px;
+}
+
+.learning-title {
+  font-size: 26px;
+  color: #333;
+  margin-top: 50px;
+
+}
+
+mat-form-field {
+  width: 40%;
+}
+
+
+@media (max-width: 426px) {
+  mat-form-field {
+    width: 100%;
+  }
+
+  .learning-title {
+    font-size: 16px;
+    margin-top: 20px;
+
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  mat-form-field {
+    width: 50%;
+  }
+
+  .learning-title {
+    font-size: 22px;
+    margin-top: 20px;
+  }
+}
