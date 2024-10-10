@@ -1,0 +1,75 @@
+<div>
+  <button mat-button (click)="accordion().openAll()">Expand All</button>
+  <button mat-button (click)="accordion().closeAll()">Collapse All</button>
+</div>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle"> Add New Learning </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Enter learning details.
+        <mat-icon>add</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+<app-add-learning-form/>
+
+  </mat-expansion-panel>
+
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle"> Manage Existing Learnings </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Edit & delete learnings.
+        <mat-icon>create</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-manage-learnings/>
+
+  </mat-expansion-panel>
+
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle">  Manage Scoreboard Levels </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Add, edit and delete scoreboard levels.
+        <mat-icon>layers</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-scoreboard-levels/>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle">  Manage Learning Types </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Add, edit and delete learning types.
+        <mat-icon>cast_for_education</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-learning-types/>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle">  Manage Learning Subjects </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Add, edit and delete learning subjects.
+        <mat-icon>book</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-learning-subjects/>
+  </mat-expansion-panel>
+
+
+
+</mat-accordion>
+
+

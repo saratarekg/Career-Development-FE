@@ -1,0 +1,38 @@
+<mat-list>
+  <mat-list-item *ngFor="let subject of learningSubjects">
+    <div>
+      <span class="subject-info">{{ subject.subject }} - Type: {{ subject.type }}</span>
+      <button mat-button (click)="editLearningSubject(subject)">Edit</button>
+      <button mat-button color="warn" (click)="deleteLearningSubject(subject.id)">Delete</button>
+    </div>
+  </mat-list-item>
+</mat-list>
+
+  <form *ngIf="isEditing" (ngSubmit)="updateLearningSubject(selectedLearningSubject.id)" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Subject</mat-label>
+      <input matInput [(ngModel)]="selectedLearningSubject.subject" name="subject" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <input matInput [(ngModel)]="selectedLearningSubject.type" name="type" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="button">Update Learning Subject</button>
+    <button mat-raised-button color="primary" type="button" class="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+
+  <form (ngSubmit)="addLearningSubject()" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Subject</mat-label>
+      <input matInput [(ngModel)]="newLearningSubject.subject" name="subject" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <input matInput [(ngModel)]="newLearningSubject.type" name="type" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="button">Add Learning Subject</button>
+  </form>

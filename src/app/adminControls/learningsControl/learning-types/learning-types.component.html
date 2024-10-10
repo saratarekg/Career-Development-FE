@@ -1,0 +1,41 @@
+<mat-list>
+  <mat-list-item *ngFor="let type of learningTypes">
+    <div>
+      <span class="level-info">{{ type.typeName }} - Base Score: {{ type.baseScore }}</span>
+      <button mat-button (click)="editLearningType(type)">Edit</button>
+      <button mat-button color="warn" (click)="deleteLearningType(type.id)">Delete</button>
+    </div>
+  </mat-list-item>
+</mat-list>
+
+  <!-- Form for editing learning type -->
+  <form *ngIf="isEditing" (ngSubmit)="updateLearningType(selectedLearningType.id)" class="form">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type Name</mat-label>
+      <input matInput [(ngModel)]="selectedLearningType.typeName" name="typeName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Base Score</mat-label>
+      <input matInput type="number" [(ngModel)]="selectedLearningType.baseScore" name="baseScore" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="button">Update Learning Type</button>
+    <button mat-raised-button color="primary" type="button" class="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+
+  <!-- Form for adding new learning type -->
+  <form (ngSubmit)="addLearningType()" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Type Name</mat-label>
+      <input matInput [(ngModel)]="newLearningType.typeName" name="typeName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Base Score</mat-label>
+      <input matInput type="number" [(ngModel)]="newLearningType.baseScore" name="baseScore" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="button">Add Learning Type</button>
+  </form>
