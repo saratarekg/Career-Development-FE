@@ -3,12 +3,13 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatCardModule} from "@angular/material/card";
 import {ApprovalStatus} from "../../enums/approval-status.enum";
-import {DatePipe, NgClass} from "@angular/common";
+import {DatePipe, NgClass, NgIf} from "@angular/common";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'user-learning-card',
   standalone: true,
-  imports: [MatCardModule, MatChipsModule, MatProgressBarModule, DatePipe, NgClass],
+  imports: [MatCardModule, MatChipsModule, MatProgressBarModule, DatePipe, NgClass, NgIf, MatIcon],
   templateUrl: './user-learning-card.component.html',
   styleUrl: './user-learning-card.component.css'
 })

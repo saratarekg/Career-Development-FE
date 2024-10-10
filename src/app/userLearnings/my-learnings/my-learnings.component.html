@@ -1,7 +1,17 @@
+<div>
+  <p class="learning-title">Your submitted learnings:</p>
+</div>
+
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by Name, Approval Status, or Comment</mat-label>
+    <input matInput [(ngModel)]="filter" (input)="applyFilters()">
+  </mat-form-field>
+</div>
 
 <div class="learning-list">
   <user-learning-card
-    *ngFor="let learning of userLearningDetails"
+    *ngFor="let learning of filteredLearnings"
     [title]="learning.title"
     [comment]="learning.comment"
     [proof]="learning.proof"

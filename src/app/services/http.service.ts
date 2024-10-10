@@ -9,10 +9,13 @@ import { AuthResponse } from '../models/authResponse';
   providedIn: 'root',
 })
 export class HttpService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+              private authService: AuthService
+  ) {}
 
   private urlUsers = 'http://localhost:8080/api/users';
   private urlAuth = 'http://localhost:8080/api/auth';
+
 
   signUpUser(user: UsersSignUpDTO) {
     return this.httpClient
@@ -23,12 +26,18 @@ export class HttpService {
   }
 
   logInUser(loginDto: LoginDto): Observable<AuthResponse> {
-    const authResponse: Observable<AuthResponse> =
-      this.httpClient.post<AuthResponse>(`${this.urlAuth}/login`, loginDto, {
-        withCredentials: true,
-      });
-    console.log(authResponse);
-    return authResponse;
+    return this.httpClient.post<AuthResponse>(`${this.urlAuth}/login`, loginDto, {
+      withCredentials: true,
+    }).pipe(
+      map((authResponse: AuthResponse) => {
+        // Store the token, userId, and isAdmin status
+        this.authService.setToken(authResponse.accessToken);
+        this.authService.setUserId(authResponse.userId);
+        this.authService.setIsAdmin(authResponse.admin);
+
+        return authResponse;
+      })
+    );
   }
 
   isTokenValid(token: string): Observable<boolean> {

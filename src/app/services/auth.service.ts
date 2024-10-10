@@ -8,12 +8,23 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   private isAdmin = new BehaviorSubject<boolean>(false);
+  private userId = new BehaviorSubject<string | null>(null);
 
   loggedIn$ = this.loggedIn.asObservable();
   isAdmin$ = this.isAdmin.asObservable();
+  userId$ = this.userId.asObservable();
 
   getToken(): string {
     return localStorage.getItem('token') || '';
+  }
+
+  getUserId(): string | null {
+    return localStorage.getItem('userId');
+  }
+
+  setUserId(userId: string): void {
+    localStorage.setItem('userId', userId);
+    this.userId.next(userId);
   }
 
   setIsAdmin(isAdmin: boolean): void {
@@ -46,9 +57,10 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
     this.loggedIn.next(false);
     this.setIsAdmin(false);
-    // Or handle cookies if you're using them
+    this.userId.next(null);
   }
 
   getIsAdmin(): boolean {
@@ -58,7 +70,6 @@ export class AuthService {
   isLoggedIn(): boolean {
     const token = this.getToken();
     if (!token) return false;
-    console.log(this.getTokenExpirationDate(token));
     const value = this.isTokenExpired();
     this.loggedIn.next(value);
     return value;

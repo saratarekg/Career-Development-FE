@@ -19,6 +19,7 @@ import {
 import {MatButton} from "@angular/material/button";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatCardModule} from "@angular/material/card";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-submit-learning-form',
@@ -34,9 +35,11 @@ import {MatCardModule} from "@angular/material/card";
 })
 export class SubmitLearningFormComponent implements OnInit {
 
+  userId: string | null = '';
+
   submitUserLearningDTO: SubmitUserLearningDTO = {
     title: "",
-    userId: '76fbd24c-7ab1-42d7-8b1e-d3ec0b5a4d5e',
+    userId: this.userId!,
     proof: '',
     proofTypeId: '',
     activeBoosterId: '',
@@ -56,10 +59,15 @@ export class SubmitLearningFormComponent implements OnInit {
   learningSubjects: LearningSubjectsDTO[] = [];
   proofTypes: ProofTypeDTO[] = [];
 
-  constructor(private userLearningsService: UserLearningsService) {
-  }
+
+  constructor(private userLearningsService: UserLearningsService,
+              private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.authService.userId$.subscribe(userId => this.userId = userId);
+
+    this.userId = this.authService.getUserId();
+
     this.loadLearningOptions();
     this.loadLearningTypes();
     this.loadLearningSubjects();
@@ -125,7 +133,7 @@ export class SubmitLearningFormComponent implements OnInit {
   resetForm(): void {
     this.submitUserLearningDTO = {
       title: "",
-      userId: '76fbd24c-7ab1-42d7-8b1e-d3ec0b5a4d5e',
+      userId: this.userId!,
       proof: '',
       proofTypeId: '',
       activeBoosterId: '',
