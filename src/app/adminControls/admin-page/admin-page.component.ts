@@ -5,12 +5,14 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatAccordion, MatExpansionModule} from "@angular/material/expansion";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
-import {AddUserComponent} from "../add-user/add-user.component";
-import {ManageUserComponent} from "../manage-user/manage-user.component";
-import {ResetPasswordComponent} from "../reset-password/reset-password.component";
-import {AssignTitleComponent} from "../assign-title/assign-title.component";
-import {AssignManagerComponent} from "../assign-manager/assign-manager.component";
-import {AssignRoleComponent} from "../assign-role/assign-role.component";
+
+import {AdminLearningsControlComponent} from "../learningsControl/admin-learnings-control/admin-learnings-control.component";
+import {AddUserComponent} from "../userControls/add-user/add-user.component";
+import {ManageUserComponent} from "../userControls/manage-user/manage-user.component";
+import {ResetPasswordComponent} from "../userControls/reset-password/reset-password.component";
+import {AssignTitleComponent} from "../userControls/assign-title/assign-title.component";
+import {AssignManagerComponent} from "../userControls/assign-manager/assign-manager.component";
+import {AssignRoleComponent} from "../userControls/assign-role/assign-role.component";
 
 @Component({
   selector: 'app-admin-page',
@@ -28,7 +30,8 @@ import {AssignRoleComponent} from "../assign-role/assign-role.component";
     ResetPasswordComponent,
     AssignTitleComponent,
     AssignManagerComponent,
-    AssignRoleComponent
+    AssignRoleComponent,
+    AdminLearningsControlComponent
   ],
 
   templateUrl: './admin-page.component.html',

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { UserService } from "../../services/user/user.service";
 import { FormsModule, NgForm } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { NgIf } from "@angular/common";
-import {User} from "../../models/userDto";
+import {User} from "../../../models/userDto";
+import {UserService} from "../../../services/user/user.service";
 
 
 @Component({

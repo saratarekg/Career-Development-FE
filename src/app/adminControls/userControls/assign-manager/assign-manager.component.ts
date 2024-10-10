@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import {UserService} from "../../services/user/user.service";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {NgForOf, NgIf} from "@angular/common";
+import {UserService} from "../../../services/user/user.service";
 
 @Component({
   selector: 'app-assign-manager',

@@ -6,6 +6,8 @@ import { AdminGuardService } from './services/admin-guard.service';
 import {LearningsComponent} from "./learningsLibrary/learnings/learnings.component";
 import {SubmitLearningFormComponent} from "./userLearnings/submit-learning-form/submit-learning-form.component";
 import {MyLearningsComponent} from "./userLearnings/my-learnings/my-learnings.component";
+import {ManagerControlsComponent} from "./manager-controls/manager-controls.component";
+import {ManagerGuardService} from "./services/manager-guard.service";
 export const routes: Routes = [
   {
     path: 'login',
@@ -51,7 +53,15 @@ export const routes: Routes = [
       import('./adminControls/admin-page/admin-page.component').then(
         (m) => m.AdminPageComponent
       ),
+    // canActivate: [AuthGuardService],
     canActivate: [AdminGuardService],
+
+  },
+  {
+    path: 'manage',
+    component: ManagerControlsComponent,
+    canActivate: [ManagerGuardService],
+
   },
   {
     path: '**',

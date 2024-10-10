@@ -32,6 +32,7 @@ export class NavbarComponent implements OnInit {
 
   isLoggedIn!: boolean;
   isAdmin!: boolean;
+  isManager!:boolean;
 
   ngOnInit(): void {
     this.authService.loggedIn$.subscribe((loggedIn) => {
@@ -42,6 +43,11 @@ export class NavbarComponent implements OnInit {
     this.authService.isAdmin$.subscribe((isAdmin) => {
       this.isAdmin = isAdmin;
       console.log('Is the user an admin?', isAdmin);
+    });
+
+    this.authService.isManager$.subscribe((isManager) => {
+      this.isManager = isManager;
+      console.log('Is the user a manager?', isManager);
     });
   }
 

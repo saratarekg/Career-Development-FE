@@ -1,4 +1,5 @@
-<div>
+<div  *ngIf="userLearningDetails.length > 0">
+<div >
   <p class="learning-title">Your submitted learnings:</p>
 </div>
 
@@ -7,6 +8,7 @@
     <mat-label>Filter by Name, Approval Status, or Comment</mat-label>
     <input matInput [(ngModel)]="filter" (input)="applyFilters()">
   </mat-form-field>
+</div>
 </div>
 
 <div class="learning-list">

@@ -8,11 +8,14 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   private isAdmin = new BehaviorSubject<boolean>(false);
+  private isManager = new BehaviorSubject<boolean>(false);
   private userId = new BehaviorSubject<string | null>(null);
 
   loggedIn$ = this.loggedIn.asObservable();
   isAdmin$ = this.isAdmin.asObservable();
+  isManager$ = this.isManager.asObservable();
   userId$ = this.userId.asObservable();
+
 
   getToken(): string {
     return localStorage.getItem('token') || '';
@@ -29,6 +32,10 @@ export class AuthService {
 
   setIsAdmin(isAdmin: boolean): void {
     this.isAdmin.next(isAdmin);
+  }
+
+  setIsManager(isManager: boolean): void {
+    this.isManager.next(isManager);
   }
 
   setToken(token: string): void {
@@ -60,11 +67,16 @@ export class AuthService {
     localStorage.removeItem('userId');
     this.loggedIn.next(false);
     this.setIsAdmin(false);
+    this.setIsManager(false);
     this.userId.next(null);
   }
 
   getIsAdmin(): boolean {
     return this.isAdmin.getValue();
+  }
+
+  getIsManager(): boolean {
+    return this.isManager.getValue();
   }
 
   isLoggedIn(): boolean {
