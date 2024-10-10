@@ -15,3 +15,20 @@
 .description{
   width:41%
 }
+
+@media (max-width: 426px) {
+  .form-grid {
+    display: grid;
+    gap: 5px;
+  }
+
+  .description{
+    width:100%
+  }
+
+  .button {
+    display: block;
+    margin: 0 auto;
+  }
+
+}

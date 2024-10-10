@@ -2,11 +2,12 @@ import {Component, Input} from '@angular/core';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatCardModule} from "@angular/material/card";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-learning-card',
   standalone: true,
-  imports: [MatCardModule, MatChipsModule, MatProgressBarModule],
+    imports: [MatCardModule, MatChipsModule, MatProgressBarModule, MatIcon],
   templateUrl: './learning-card.component.html',
   styleUrl: './learning-card.component.css'
 })

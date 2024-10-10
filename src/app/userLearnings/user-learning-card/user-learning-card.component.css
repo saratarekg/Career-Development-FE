@@ -20,13 +20,23 @@
 .title {
   font-size: 1.5rem; /* Larger title */
   font-weight: bold; /* Bold title */
+  color: black;
 }
 
 .subtitle {
   font-size: 1rem; /* Subtitle size */
-  color: #757575; /* Gray color for subtitle */
+  color: rgba(48, 30, 188, 0.82); /* Gray color for subtitle */
+}
+.small-icon {
+  font-size: 20px;
+  vertical-align: middle;
 }
 
+
+
+.comment{
+  font-size: 0.9rem;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -67,6 +77,9 @@
 
 
 @media (max-width: 426px) {
+  .comment{
+    font-size: 0.7rem;
+  }
   .example-card {
     max-width: 100%;
   }
@@ -76,11 +89,9 @@
   }
 
   .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
-  p{
-    font-size: 1rem;
-  }
+
 }
 

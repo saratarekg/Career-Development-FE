@@ -10,11 +10,13 @@
   </mat-card-content>
   <mat-card-footer class="example-card-footer">
     <mat-chip-set aria-label="Chihuahua traits">
-      <mat-chip>{{hours}}</mat-chip>
+      <mat-chip>
+        <mat-icon class="small-icon">schedule</mat-icon> {{ hours }} hrs
+      </mat-chip>
       <mat-chip>{{subject}}</mat-chip>
       <mat-chip>{{type}}</mat-chip>
       <mat-chip>{{typeName}}</mat-chip>
-      <mat-chip>{{baseScore}}</mat-chip>
-    </mat-chip-set>
+      <mat-chip><mat-icon class="small-icon">grade</mat-icon> {{ baseScore }} pts
+      </mat-chip>    </mat-chip-set>
   </mat-card-footer>
 </mat-card>
