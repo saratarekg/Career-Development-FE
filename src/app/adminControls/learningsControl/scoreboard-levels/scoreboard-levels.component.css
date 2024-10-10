@@ -1,0 +1,26 @@
+/*.scoreboard-levels-container {*/
+/*  max-width: 300px;*/
+/*}*/
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.level-info {
+  flex: 1;
+}
+
+.button-group {
+  margin-left: 20px;
+}
+
+.add-level-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.button{
+  vertical-align: center;
+
+}

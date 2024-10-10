@@ -1,0 +1,39 @@
+
+  <mat-list>
+    <mat-list-item *ngFor="let level of scoreboardLevels">
+      <div>
+      <span class="level-info">{{ level.levelName }} - Min Score: {{ level.minScore }}</span>
+        <button mat-button (click)="editScoreboardLevel(level)">Edit</button>
+        <button mat-button color="warn" (click)="deleteScoreboardLevel(level.id)">Delete</button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+  <div class="scoreboard-levels-container">
+    <form *ngIf="isEditing" (ngSubmit)="updateScoreboardLevel(selectedScoreboardLevel.id)" class="add-level-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Level Name</mat-label>
+        <input matInput [(ngModel)]="selectedScoreboardLevel.levelName" name="levelName" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Min Score</mat-label>
+        <input matInput type="number" [(ngModel)]="selectedScoreboardLevel.minScore" name="minScore" required />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="button">Update Scoreboard Level</button>
+      <button mat-raised-button color="primary" type="button" class="button" (click)="cancelEdit()">Cancel</button>
+    </form>
+
+  <form (ngSubmit)="addScoreboardLevel()" class="add-level-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Level Name</mat-label>
+      <input matInput [(ngModel)]="newScoreboardLevel.levelName" name="levelName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Min Score</mat-label>
+      <input matInput type="number" [(ngModel)]="newScoreboardLevel.minScore" name="minScore" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="button">Add Scoreboard Level</button>
+  </form>
+</div>
