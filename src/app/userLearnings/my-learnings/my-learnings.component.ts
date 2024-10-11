@@ -3,7 +3,7 @@ import {SubmitLearningFormComponent} from "../submit-learning-form/submit-learni
 import {Learning, UserLearningResponseDTO} from "../../models/learningDTO";
 import {UserLearningsService} from "../../services/userLearnings/user-learnings.service";
 import {LearningCardComponent} from "../../learningsLibrary/learning-card/learning-card.component";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {UserLearningCardComponent} from "../user-learning-card/user-learning-card.component";
 import {AuthService} from "../../services/auth.service";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
@@ -23,7 +23,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatInput,
     MatLabel,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './my-learnings.component.html',
   styleUrl: './my-learnings.component.css'

@@ -16,15 +16,6 @@ export class LearningService {
 
   constructor(private http: HttpClient) {}
 
-  getAllLearnings(): Observable<LearningDTO[]> {
-    return this.http.get<LearningDTO[]>(this.apiUrl).pipe(
-      tap(learnings => {
-        console.log(learnings); // Log the response here
-      })
-    );
-  }
-
-
   getLearningTypeById(typeId: string): Observable<LearningTypesDTO> {
     return this.http.get<LearningTypesDTO>(`${this.learningTypesUrl}/${typeId}`);
   }
@@ -77,4 +68,35 @@ export class LearningService {
       });
     });
   }
+
+  getAllLearnings(): Observable<LearningDTO[]> {
+    return this.http.get<LearningDTO[]>(this.apiUrl).pipe(
+      tap(learnings => {
+        console.log(learnings); // Log the response here
+      })
+    );
+  }
+
+  // Add a new learning
+  addLearning(newLearning: LearningDTO): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/add`, newLearning,{
+      withCredentials: true,
+      responseType: 'text' as 'json'
+    });
+  }
+
+  // Update an existing learning
+  updateLearning(id: string, updatedLearning: LearningDTO): Observable<string> {
+    return this.http.put<string>(`${this.apiUrl}/update/${id}`, updatedLearning,{
+      withCredentials: true,
+        responseType: 'text' as 'json'
+    });
+  }
+
+  // Delete a learning
+  deleteLearning(id: string): Observable<string> {
+    return this.http.delete<string>(`${this.apiUrl}/delete/${id}`)
+  }
+
+
 }

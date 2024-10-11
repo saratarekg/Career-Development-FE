@@ -30,10 +30,12 @@ export class HttpService {
       withCredentials: true,
     }).pipe(
       map((authResponse: AuthResponse) => {
-        // Store the token, userId, and isAdmin status
+        // Store the token, userId, isManager and isAdmin status
         this.authService.setToken(authResponse.accessToken);
-        this.authService.setUserId(authResponse.userId);
         this.authService.setIsAdmin(authResponse.admin);
+        this.authService.setIsManager(authResponse.manager);
+        this.authService.setUserId(authResponse.userId);
+
 
         return authResponse;
       })

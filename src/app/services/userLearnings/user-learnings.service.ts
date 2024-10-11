@@ -55,6 +55,22 @@ export class UserLearningsService {
 
 
   getUserLearningDetails(userId: string): Observable<UserLearningResponseDTO[]> {
-    return this.http.get<UserLearningResponseDTO[]>(`${this.userLearningsAPI}/submittedLearnings/${userId}`);
+    return this.http.get<UserLearningResponseDTO[]>(`${this.userLearningsAPI}/submittedLearnings/${userId}`,{
+      withCredentials: true
+    });
+  }
+
+  updateApprovalStatus(id: string, newStatus: string): Observable<string> {
+    return this.http.put<string>(`${this.userLearningsAPI}/updateApprovalStatus/${id}`, newStatus, {
+      responseType: 'text' as 'json',
+      withCredentials: true
+    });
+  }
+
+  updateComment(id: string, comment: string): Observable<string> {
+    return this.http.put<string>(`${this.userLearningsAPI}/updateComment/${id}`, comment, {
+      responseType: 'text' as 'json',
+      withCredentials: true
+    });
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../../models/userDto';
+import {User, UsersDTO} from '../../models/userDto';
 import { environment } from '../../../environment';
 
 @Injectable({
@@ -119,5 +119,12 @@ export class UserService {
     );
   }
 
+
+  getManagedUsers(managerId: string): Observable<UsersDTO[]> {
+    return this.http.get<UsersDTO[]>(`${this.usersAPI}/managed/${managerId}`,
+      {
+        withCredentials: true,
+      });
+  }
 
 }

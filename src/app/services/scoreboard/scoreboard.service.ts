@@ -10,6 +10,7 @@ import {
 } from 'rxjs';
 import { PaginatedUsers, UserScoresDTO } from '../../models/userDto';
 import { environment } from '../../../environment';
+import {PaginatedScoreboardLevelsDTO, ScoreboardLevelsDTO} from "../../models/scoreboardDTO";
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,37 @@ export class ScoreboardService {
   private scoreboardLevelsAPI = environment.scoreboardLevelsAPI;
 
   constructor(private http: HttpClient) {}
+
+  addScoreboardLevel(scoreboardLevelsDTO: ScoreboardLevelsDTO): Observable<string> {
+    return this.http.post<string>(this.scoreboardLevelsAPI, scoreboardLevelsDTO,
+      {
+        withCredentials: true,
+        responseType: 'text' as 'json'
+      });
+  }
+
+  updateScoreboardLevel(id: string, scoreboardLevelsDTO: ScoreboardLevelsDTO): Observable<string> {
+    return this.http.put<string>(`${this.scoreboardLevelsAPI}/${id}`, scoreboardLevelsDTO,
+      {
+        withCredentials: true,
+        responseType: 'text' as 'json'
+      });
+  }
+
+  deleteScoreboardLevel(id: string): Observable<string> {
+    return this.http.delete<string>(`${this.scoreboardLevelsAPI}/${id}`,
+      {
+        withCredentials: true,
+        responseType: 'text' as 'json'
+      });
+  }
+
+  getAllScoreboardLevels(page: number, size: number): Observable<PaginatedScoreboardLevelsDTO> {
+    return this.http.get<PaginatedScoreboardLevelsDTO>(`${this.scoreboardLevelsAPI}/all?page=${page}&size=${size}`, {
+      withCredentials: true
+    });
+  }
+
 
   getScoreboard(page: number, size: number): Observable<any[]> {
     return this.http

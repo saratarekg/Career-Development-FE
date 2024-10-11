@@ -70,6 +70,7 @@ export interface BoostersDTO {
 
 
 export interface UserLearningResponseDTO {
+  id:string;
   title: string;
   URL: string;
   proof: string;

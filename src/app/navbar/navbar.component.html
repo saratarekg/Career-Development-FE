@@ -28,6 +28,13 @@
       <button mat-menu-item routerLink="/home" routerLinkActive="active">
         Home
       </button>
+
+      @if (isManager){
+      <button mat-menu-item routerLink="/manage" routerLinkActive="active">
+        Manage
+      </button>
+      }
+
       @if (isAdmin){
       <button mat-menu-item routerLink="/admin" routerLinkActive="active">
         Admin
@@ -56,6 +63,10 @@
       <a mat-button routerLink="/myLearnings" routerLinkActive="active">My Learnings</a>
 
       <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+
+      @if (isManager){
+      <a mat-button routerLink="/manage" routerLinkActive="active">Manage</a>
+      }
 
       @if (isAdmin){
     <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
