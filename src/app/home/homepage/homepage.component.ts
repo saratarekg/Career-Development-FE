@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './homepage.component.css',
 })
 export class HomepageComponent {
+
   constructor(private authService: AuthService) {}
   router = inject(Router);
 }

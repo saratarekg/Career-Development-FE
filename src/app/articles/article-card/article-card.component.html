@@ -1,0 +1,11 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header class="header">
+    <mat-card-title>
+      {{ title }}</mat-card-title>
+    <mat-card-subtitle>
+      <a  class="subtitle" [href]="document" target="_blank">View Article</a>
+    </mat-card-subtitle>
+    <div class="date">{{ date | date: 'longDate' }}</div>
+  </mat-card-header>
+
+</mat-card>

@@ -8,6 +8,7 @@ import {SubmitLearningFormComponent} from "./userLearnings/submit-learning-form/
 import {MyLearningsComponent} from "./userLearnings/my-learnings/my-learnings.component";
 import {ManagerControlsComponent} from "./manager-controls/manager-controls.component";
 import {ManagerGuardService} from "./services/manager-guard.service";
+import {ArticlesComponent} from "./articles/articles.component";
 export const routes: Routes = [
   {
     path: 'login',
@@ -45,6 +46,11 @@ export const routes: Routes = [
   {
     path: 'myLearnings',
     component: MyLearningsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'articles',
+    component: ArticlesComponent,
     canActivate: [AuthGuardService],
   },
   {

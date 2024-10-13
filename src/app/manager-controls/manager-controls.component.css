@@ -1,56 +1,11 @@
-
-
-.manager-page{
-  padding: 20px 0;
-}
-
-.user-container{
-  margin-top: 20px;
-}
-.card-subtitle{
-margin-bottom: 10px;
-  color: #1d0460;
-
-}
-
-.header{
-  background-color: rgba(124, 139, 213, 0.34);
-  color: #1d0460;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.subtitle{
-  margin-bottom: 10px;
-}
-.user-card {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card-content {
-  margin: 10px;
-  padding: 20px;
-
-}
-
-.learning-container {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 15px;
-}
-
-.full-width {
-  width: 40%;
-}
-
-.button-group {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+.toggleGroup{
+  margin: 15px;
 }
 
 @media (max-width: 480px) {
-  .full-width {
-    width: 100%;
+  .toggleGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

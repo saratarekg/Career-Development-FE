@@ -1,9 +1,8 @@
 <mat-toolbar class="transparent-toolbar">
-  <mat-card-header>
+  <mat-card-header class="image-header">
     <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
   </mat-card-header>
 
-  <span class="spacer"></span>
 
   <button mat-icon-button [matMenuTriggerFor]="menu" class="hamburger-button">
     <mat-icon>menu</mat-icon>
@@ -19,15 +18,19 @@
       Sign Up
     </button>
     } @else{
+      <button mat-menu-item routerLink="/home" routerLinkActive="active">
+        Home
+      </button>
+      <button mat-menu-item routerLink="/articles" routerLinkActive="active">
+        Articles
+      </button>
       <button mat-menu-item routerLink="/library" routerLinkActive="active">
         Library
       </button>
       <button mat-menu-item routerLink="/myLearnings" routerLinkActive="active">
         My Learnings
       </button>
-      <button mat-menu-item routerLink="/home" routerLinkActive="active">
-        Home
-      </button>
+
 
       @if (isManager){
       <button mat-menu-item routerLink="/manage" routerLinkActive="active">
@@ -59,10 +62,12 @@
     >
     <a mat-button routerLink="/signup" routerLinkActive="active">Register</a>
     } @else {
+      <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+      <a mat-button routerLink="/articles" routerLinkActive="active">Articles</a>
+
       <a mat-button routerLink="/library" routerLinkActive="active">Library</a>
       <a mat-button routerLink="/myLearnings" routerLinkActive="active">My Learnings</a>
 
-      <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
 
       @if (isManager){
       <a mat-button routerLink="/manage" routerLinkActive="active">Manage</a>
@@ -81,4 +86,6 @@
     >
     }
   </nav>
+
 </mat-toolbar>
+

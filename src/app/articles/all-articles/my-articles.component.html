@@ -1,0 +1,23 @@
+<div  *ngIf="allArticles.length > 0">
+<div >
+  <p class="article-title">All Sumerge's articles:</p>
+</div>
+
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by Name, Approval Status, or Comment</mat-label>
+    <input matInput [(ngModel)]="filter" (input)="applyFilters()">
+  </mat-form-field>
+</div>
+</div>
+
+<div class="article-list">
+  <article-card
+    *ngFor="let article of filteredArticles"
+    [title]="article.title"
+    [date]="article.submissionDate"
+    [document]="article.document"
+  >
+  </article-card>
+</div>
+

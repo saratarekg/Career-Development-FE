@@ -1,0 +1,32 @@
+<div *ngFor="let user of managedUsers" class="user-container">
+  <mat-card class="user-card" *ngIf="userLearnings[user.id] && userLearnings[user.id].length > 0">
+    <mat-card-header class="header">
+      <mat-card-title>
+        <b>User: </b> {{ user.firstName }} {{ user.lastName }}
+      </mat-card-title>
+      <mat-card-subtitle class="card-subtitle">
+        {{ user.email }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <div *ngFor="let learning of userLearnings[user.id]" class="learning-container">
+        <p><strong>Learning Title: </strong> {{ learning.title }}</p>
+        <p><strong>Learning Source: </strong> <a [href]="learning.URL" target="_blank">View here</a></p>
+        <p><strong>Proof: </strong> <a [href]="learning.proof" target="_blank">View here</a></p>
+        <p><strong>Submission Date: </strong> {{ learning.date | date: 'longDate' }}</p>
+        <p><strong>Status: </strong> {{ learning.approvalStatus }}</p>
+        <p><strong>Comment: </strong> {{ learning.comment || 'No comment' }}</p>
+
+        <mat-form-field class="full-width">
+          <textarea matInput [(ngModel)]="comment" placeholder="Add comment"></textarea>
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" (click)="updateApprovalStatus(learning.id, ApprovalStatus.APPROVED)">Approve</button>
+          <button mat-raised-button color="warn" (click)="updateApprovalStatus(learning.id, ApprovalStatus.REJECTED)">Reject</button>
+          <button mat-raised-button color="accent" (click)="updateComment(learning.id, comment)">Update Comment</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

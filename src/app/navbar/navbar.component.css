@@ -45,6 +45,19 @@ mat-toolbar a.active {
   display: none; /* Hide for larger screens */
 }
 
+
+@media (max-width: 426px) {
+  .sumerge-logo {
+    width: 70%;
+    margin-bottom: 10px;
+  }
+
+  .image-header{
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media (max-width: 768px) {
   .desktop-nav {
     display: none; /* Hide desktop nav for smaller screens */

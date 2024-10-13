@@ -10,7 +10,9 @@ export const environment = {
   learningSubjectsAPI: 'http://localhost:8081/api/learningSubjects',
   userLearningsAPI: 'http://localhost:8081/api/userLearnings',
   boostersAPI: 'http://localhost:8081/api/boosters',
-  proofAPI: 'http://localhost:8081/api/proofTypes'
+  proofAPI: 'http://localhost:8081/api/proofTypes',
+  articleAPI: 'http://localhost:8082/api/articles'
+
 
 
 
