@@ -1,0 +1,25 @@
+<div  *ngIf="userArticles.length > 0">
+<div >
+  <p class="article-title">Your submitted articles:</p>
+</div>
+
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by Name, Approval Status, or Comment</mat-label>
+    <input matInput [(ngModel)]="filter" (input)="applyFilters()">
+  </mat-form-field>
+</div>
+</div>
+
+<div class="article-list">
+  <user-article-card
+    *ngFor="let article of filteredArticles"
+    [title]="article.title"
+    [comment]="article.comment"
+    [date]="article.submissionDate"
+    [document]="article.document"
+    [approvalStatus]="article.approvalStatus"
+  >
+  </user-article-card>
+</div>
+

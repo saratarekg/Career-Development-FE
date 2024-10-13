@@ -53,6 +53,7 @@ export class ScoreboardService {
   }
 
 
+
   getScoreboard(page: number, size: number): Observable<any[]> {
     return this.http
       .get<PaginatedUsers>(
@@ -125,4 +126,19 @@ export class ScoreboardService {
         })
       );
   }
+
+
+  calculateUserScore(userId: string): void {
+    this.http.put<string>(`${this.usersScoresAPI}/calculate/${userId}`, null, {
+      withCredentials: true,
+    }).subscribe({
+      next: (response) => {
+        console.log('User score calculation successful:', response);
+      },
+      error: (error) => {
+        console.error('Error calculating user score:', error);
+      }
+    });
+  }
+
 }

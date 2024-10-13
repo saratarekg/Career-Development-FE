@@ -1,0 +1,19 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header class="header">
+    <mat-card-title>
+      {{ title }}</mat-card-title>
+    <mat-card-subtitle>
+      <a  class="subtitle" [href]="document" target="_blank">View Article</a>
+    </mat-card-subtitle>
+    <div class="date">{{ date | date: 'longDate' }}</div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p class="comment">Manager's comment: {{ comment }}</p>
+  </mat-card-content>
+
+
+  <mat-card-footer class="example-card-footer">
+    <span class="approval-badge" [ngClass]="getApprovalStatusClass(approvalStatus)">{{ approvalStatus }}</span>
+  </mat-card-footer>
+</mat-card>

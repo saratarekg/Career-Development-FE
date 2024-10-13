@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {User, UsersDTO} from '../../models/userDto';
+import {PaginatedUsers, User, UsersDTO} from '../../models/userDto';
 import { environment } from '../../../environment';
 
 @Injectable({
@@ -126,5 +126,14 @@ export class UserService {
         withCredentials: true,
       });
   }
+
+
+  getAllUsersPaginated(page: number, size: number): Observable<PaginatedUsers> {
+    return this.http.get<PaginatedUsers>(
+      `${this.usersAPI}/allUsersPaginated?page=${page}&size=${size}`,
+      { withCredentials: true }
+    );
+  }
+
 
 }
