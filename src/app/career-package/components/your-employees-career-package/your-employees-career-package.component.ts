@@ -13,11 +13,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CareerPackage, SubmittedCP } from '../../../models/careerPackageDTO';
 import { CommonModule } from '@angular/common';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'app-your-employees-career-package',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, CommonModule],
+  imports: [MatCardModule, MatButtonModule, CommonModule, MatChipsModule],
   templateUrl: './your-employees-career-package.component.html',
   styleUrl: './your-employees-career-package.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
