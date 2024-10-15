@@ -1,0 +1,32 @@
+<div>
+  <button mat-button (click)="accordion().openAll()">Expand All</button>
+  <button mat-button (click)="accordion().closeAll()">Collapse All</button>
+</div>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle">
+        Add New Career Package
+      </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Enter Career Package details.
+        <mat-icon>add</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-add-career-package-form />
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panelTitle">
+        Manage Existing Career Package
+      </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Edit & delete learnings.
+        <mat-icon>edit</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-edit-career-package-form />
+  </mat-expansion-panel>
+</mat-accordion>

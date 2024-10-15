@@ -16,7 +16,6 @@ export class AuthService {
   isManager$ = this.isManager.asObservable();
   userId$ = this.userId.asObservable();
 
-
   getToken(): string {
     return localStorage.getItem('token') || '';
   }
@@ -40,6 +39,7 @@ export class AuthService {
 
   setToken(token: string): void {
     localStorage.setItem('token', token);
+
     this.loggedIn.next(true);
   }
 

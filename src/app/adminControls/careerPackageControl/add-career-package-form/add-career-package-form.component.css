@@ -1,0 +1,59 @@
+.submit-card {
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 16px;
+  }
+  .title{
+    margin-bottom: 10px;
+  }
+  
+  .form-grid {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .description{
+    width:41%
+  }
+
+  button {
+    padding: 5px;
+  }
+
+button {
+  background-color: rgba(124, 139, 213, 0.51);
+  color: white;
+}
+
+button:hover {
+  background-color: rgba(124, 139, 213, 0.72);
+}
+
+  button:disabled {
+    background-color: #b0bec5;
+    color: #fff;
+    cursor: not-allowed;
+  }
+
+  .button{
+    vertical-align: center;
+  
+  }
+  
+  @media (max-width: 426px) {
+    .form-grid {
+      display: grid;
+      gap: 5px;
+    }
+  
+    .description{
+      width:100%
+    }
+  
+    .button {
+      display: block;
+      margin: 0 auto;
+    }
+  
+  }
+  

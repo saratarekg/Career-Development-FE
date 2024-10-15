@@ -3,14 +3,13 @@
     <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
   </mat-card-header>
 
-
   <button mat-icon-button [matMenuTriggerFor]="menu" class="hamburger-button">
     <mat-icon>menu</mat-icon>
   </button>
 
   <mat-menu #menu="matMenu">
     @if (!isLoggedIn) {
-      <button mat-menu-item routerLink="/login" routerLinkActive="active">
+    <button mat-menu-item routerLink="/login" routerLinkActive="active">
       Login
     </button>
 
@@ -18,37 +17,44 @@
       Sign Up
     </button>
     } @else{
-      <button mat-menu-item routerLink="/home" routerLinkActive="active">
-        Home
-      </button>
-      <button mat-menu-item routerLink="/articles" routerLinkActive="active">
-        Articles
-      </button>
-      <button mat-menu-item routerLink="/library" routerLinkActive="active">
-        Library
-      </button>
-      <button mat-menu-item routerLink="/myLearnings" routerLinkActive="active">
-        My Learnings
-      </button>
+    <button mat-menu-item routerLink="/home" routerLinkActive="active">
+      Home
+    </button>
+    <button mat-menu-item routerLink="/articles" routerLinkActive="active">
+      Articles
+    </button>
+    <button mat-menu-item routerLink="/library" routerLinkActive="active">
+      Library
+    </button>
+    <button mat-menu-item routerLink="/myLearnings" routerLinkActive="active">
+      My Learnings
+    </button>
 
-
-      @if (isManager){
-      <button mat-menu-item routerLink="/manage" routerLinkActive="active">
-        Manage
-      </button>
-      }
-
-      @if (isAdmin){
-      <button mat-menu-item routerLink="/admin" routerLinkActive="active">
-        Admin
-      </button>
-      }
-      <button mat-menu-item routerLink="/login" routerLinkActive="active"
-              (click)="logout()">
-        Logout
-      </button>
+    @if (isManager){
+    <button mat-menu-item routerLink="/manage" routerLinkActive="active">
+      Manage
+    </button>
     }
 
+    <button mat-menu-item routerLink="/careerPackage" routerLinkActive="active">
+      Career Packages
+    </button>
+
+    @if (isAdmin){
+    <button mat-menu-item routerLink="/admin" routerLinkActive="active">
+      Admin
+    </button>
+    }
+
+    <button
+      mat-menu-item
+      routerLink="/login"
+      routerLinkActive="active"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+    }
   </mat-menu>
 
   <nav class="desktop-nav">
@@ -62,18 +68,21 @@
     >
     <a mat-button routerLink="/signup" routerLinkActive="active">Register</a>
     } @else {
-      <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
-      <a mat-button routerLink="/articles" routerLinkActive="active">Articles</a>
+    <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+    <a mat-button routerLink="/articles" routerLinkActive="active">Articles</a>
 
-      <a mat-button routerLink="/library" routerLinkActive="active">Library</a>
-      <a mat-button routerLink="/myLearnings" routerLinkActive="active">My Learnings</a>
+    <a mat-button routerLink="/library" routerLinkActive="active">Library</a>
+    <a mat-button routerLink="/myLearnings" routerLinkActive="active"
+      >My Learnings</a
+    >
 
+    <a mat-button routerLink="/careerPackage" routerLinkActive="active"
+      >Career Packages</a
+    >
 
-      @if (isManager){
-      <a mat-button routerLink="/manage" routerLinkActive="active">Manage</a>
-      }
-
-      @if (isAdmin){
+    @if (isManager){
+    <a mat-button routerLink="/manage" routerLinkActive="active">Manage</a>
+    } @if (isAdmin){
     <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
     }
     <a
@@ -86,6 +95,4 @@
     >
     }
   </nav>
-
 </mat-toolbar>
-

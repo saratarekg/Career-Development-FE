@@ -1,7 +1,9 @@
-<mat-card appearance="outlined" >
+<mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title class="title">Admin Controls</mat-card-title>
-    <mat-card-subtitle  class="subtitle">Manage users, learnings, and system preferences.</mat-card-subtitle>
+    <mat-card-subtitle class="subtitle"
+      >Manage users, learnings, and system preferences.</mat-card-subtitle
+    >
   </mat-card-header>
 </mat-card>
 
@@ -14,25 +16,26 @@
     <mat-expansion-panel-header>
       <mat-panel-title class="panelTitle"> Register new user </mat-panel-title>
       <mat-panel-description class="panelDescription">
-     Enter user details.
+        Enter user details.
         <mat-icon>account_circle</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <app-add-user/>
-
+    <app-add-user />
   </mat-expansion-panel>
 
   <mat-expansion-panel>
     <mat-expansion-panel-header>
-      <mat-panel-title class="panelTitle"> Assign User Title & Department </mat-panel-title>
-     <mat-panel-description class="panelDescription">
-          Enter user email and choose a department and title.
+      <mat-panel-title class="panelTitle">
+        Assign User Title & Department
+      </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Enter user email and choose a department and title.
         <mat-icon>badge</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <app-assign-title/>
+    <app-assign-title />
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -43,49 +46,57 @@
         <mat-icon> business</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>For role id, please choose either 1 for User, 2 for Admin or 3 for Manager.
+    <p>
+      For role id, please choose either 1 for User, 2 for Admin or 3 for
+      Manager.
     </p>
-    <app-assign-role/>
+    <app-assign-role />
   </mat-expansion-panel>
 
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title class="panelTitle"> Assign Manager </mat-panel-title>
-     <mat-panel-description class="panelDescription">
-         Enter user email and manager email.
+      <mat-panel-description class="panelDescription">
+        Enter user email and manager email.
         <mat-icon>supervisor_account</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-<app-assign-manager/>
+    <app-assign-manager />
   </mat-expansion-panel>
-
 
   <mat-expansion-panel>
     <mat-expansion-panel-header>
-      <mat-panel-title class="panelTitle"> Reset User Password </mat-panel-title>
-     <mat-panel-description class="panelDescription">
-           Enter user email and password.
+      <mat-panel-title class="panelTitle">
+        Reset User Password
+      </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Enter user email and password.
         <mat-icon>password</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <app-reset-password/>
+    <app-reset-password />
   </mat-expansion-panel>
 
   <mat-expansion-panel>
     <mat-expansion-panel-header>
-      <mat-panel-title class="panelTitle"> Manage User Account </mat-panel-title>
-     <mat-panel-description class="panelDescription">
-          Enter user email and choose action.
+      <mat-panel-title class="panelTitle">
+        Manage User Account
+      </mat-panel-title>
+      <mat-panel-description class="panelDescription">
+        Enter user email and choose action.
         <mat-icon>person</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <app-freeze-user/>
+    <app-freeze-user />
   </mat-expansion-panel>
 </mat-accordion>
 
+<div class="learningControls">
+  <app-admin-learnings-control />
+</div>
 
-<div class="learningControls" >
-<app-admin-learnings-control/>
+<div class="careerPackageControl">
+  <app-admin-career-package-control />
 </div>

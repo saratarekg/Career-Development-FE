@@ -1,0 +1,39 @@
+<div *ngIf="nonAvailableCareerPackagesTitles.length > 0; else ngTemplate">
+  <form
+    [formGroup]="addCareerPackageFormGroup"
+    (ngSubmit)="onSubmitAddCareerPackage()"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Career Package</mat-label>
+      <mat-select formControlName="titleFormControl" required>
+        <mat-option
+          *ngFor="let title of nonAvailableCareerPackagesTitles"
+          trackBy:title
+          [value]="title"
+        >
+          {{ title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <div  *ngFor="let title of titles; trackBy:item"></div> -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Document URL</mat-label>
+      <input matInput formControlName="googleDocLinkFormControl" required />
+    </mat-form-field>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      class="button"
+      [disabled]="addCareerPackageFormGroup.invalid"
+    >
+      Submit Learning
+    </button>
+  </form>
+</div>
+<ng-template #ngTemplate>
+  <p class="text-muted">No available career packages to add.</p>
+</ng-template>

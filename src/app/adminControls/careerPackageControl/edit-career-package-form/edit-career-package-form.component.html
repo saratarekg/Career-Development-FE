@@ -1,0 +1,36 @@
+<div>
+  <form
+    [formGroup]="editCareerPackageFormGroup"
+    (ngSubmit)="onSubmitEditCareerPackage()"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Career Package</mat-label>
+      <mat-select formControlName="titleFormControl" required>
+        <mat-option
+          *ngFor="let title of availableCareerPackagesTitles"
+          trackBy:title
+          [value]="title"
+        >
+          {{ title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <div  *ngFor="let title of titles; trackBy:item"></div> -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Document URL</mat-label>
+      <input matInput formControlName="googleDocLinkFormControl" required />
+    </mat-form-field>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      class="button"
+      [disabled]="editCareerPackageFormGroup.invalid"
+    >
+      Submit Learning
+    </button>
+  </form>
+</div>
