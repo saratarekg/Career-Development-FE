@@ -1,0 +1,34 @@
+<div class="notification-icon" [matMenuTriggerFor]="notificationMenu" aria-label="Notifications">
+  <mat-icon class="notification-icon__icon">notifications</mat-icon>
+  <span class="badge">{{ unseenCount }}</span>
+</div>
+
+<mat-menu #notificationMenu="matMenu">
+  <div class="notification-dropdown">
+    <button class="btn" (click)="markAllAsSeen()" *ngIf="unseenCount > 0" >
+      <mat-icon class="small-icon">check_circle</mat-icon> Mark All As Read
+    </button>
+
+
+    <ng-container *ngIf="notifications.length > 0; else noNotifications">
+      <ng-container *ngFor="let notification of notifications">
+        <div class="notification-item" [ngClass]="{'unseen': !notification.seen}">
+          <div>
+            <p>{{ notification.actionName }}</p>
+            <p class="date">{{ notification.date | date:'short' }}</p>
+          </div>
+          <button class="btn" (click)="markAsSeen(notification.id)" *ngIf="!notification.seen" >
+            <mat-icon  class="small-icon">check</mat-icon> Read
+          </button>
+        </div>
+        <hr class="notification-divider">
+      </ng-container>
+    </ng-container>
+
+    <ng-template #noNotifications>
+      <div class="no-notifications">
+        <p>No notifications available.</p>
+      </div>
+    </ng-template>
+  </div>
+</mat-menu>
