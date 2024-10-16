@@ -116,6 +116,8 @@ export class SubmitLearningFormComponent implements OnInit {
   }
 
   submit(): void {
+    this.submitUserLearningDTO.userId = this.userId!;
+
     if (
       this.submitUserLearningDTO.learningId ||
       (this.submitUserLearningDTO.title &&
@@ -133,11 +135,7 @@ export class SubmitLearningFormComponent implements OnInit {
             this.resetForm();
           },
           (error) => {
-            alert(
-              `Error submitting learning form: ${
-                error.message
-              }   ${JSON.stringify(this.submitUserLearningDTO)}`
-            );
+            alert(`Error submitting learning form: ${error.message}`);
           }
         );
     } else {
