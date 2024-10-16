@@ -45,17 +45,21 @@ mat-toolbar a.active {
   display: none; /* Hide for larger screens */
 }
 
+.notification {
+  display: none; /* Hide for larger screens */
+}
+
 
 @media (max-width: 426px) {
   .sumerge-logo {
     width: 70%;
     margin-bottom: 10px;
   }
-
   .image-header{
     justify-content: center;
     align-items: center;
   }
+
 }
 
 @media (max-width: 768px) {
@@ -64,6 +68,10 @@ mat-toolbar a.active {
   }
 
   .hamburger-button {
+    display: block; /* Show hamburger button for smaller screens */
+  }
+
+  .notification {
     display: block; /* Show hamburger button for smaller screens */
   }
 }
