@@ -110,6 +110,8 @@ export class SubmitLearningFormComponent implements OnInit {
   }
 
   submit(): void {
+    this.submitUserLearningDTO.userId = this.userId!;
+
     if (this.submitUserLearningDTO.learningId || (
       this.submitUserLearningDTO.title &&
       this.submitUserLearningDTO.learningTypeId &&
