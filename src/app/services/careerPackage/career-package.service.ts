@@ -6,6 +6,7 @@ import {
   PaginatedCareerPackages,
   RequestCareerPackage,
   RequestSubmitCPDto,
+  SubmittedCP,
 } from '../../models/careerPackageDTO';
 
 @Injectable({
@@ -45,5 +46,10 @@ export class CareerPackageService implements OnInit {
 
   editCareerPackage(careerPackage: CareerPackage) {
     this.httpService.putEditCareerPackage(careerPackage);
+  }
+
+  updateStatusSubmittedCareerPackage(submittedCP: SubmittedCP) {
+    console.log(submittedCP);
+    this.httpService.updateStatusSubmittedCP(submittedCP);
   }
 }

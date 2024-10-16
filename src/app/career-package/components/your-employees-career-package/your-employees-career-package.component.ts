@@ -63,4 +63,23 @@ export class YourEmployeesCareerPackageComponent implements OnInit {
       });
     }
   }
+
+  acceptCareerPackage(submittedCP: SubmittedCP) {
+    // TODO: Implement logic to accept the career package submission
+    console.log('AcceptingCareerPackage');
+    console.log(submittedCP);
+    this.careerPackageService.updateStatusSubmittedCareerPackage({
+      ...submittedCP,
+      status: 'APPROVED',
+    });
+  }
+
+  rejectCareerPackage(submittedCP: SubmittedCP) {
+    // TODO: Implement logic to accept the career package submission
+    console.log('RejectingCareerPackage');
+    this.careerPackageService.updateStatusSubmittedCareerPackage({
+      ...submittedCP,
+      status: 'REJECTED',
+    });
+  }
 }

@@ -11,6 +11,7 @@ import {
   PaginatedSubmittedCP,
   RequestCareerPackage,
   RequestSubmitCPDto,
+  SubmittedCP,
 } from '../models/careerPackageDTO';
 @Injectable({
   providedIn: 'root',
@@ -120,6 +121,17 @@ export class HttpService {
         requestCareerPackage,
         { withCredentials: true }
       )
+      .subscribe((data) => {
+        console.log(data);
+      });
+  }
+
+  updateStatusSubmittedCP(submittedCP: SubmittedCP) {
+    console.log(submittedCP);
+    this.httpClient
+      .put<SubmittedCP>(`${this.urlSubmittedCP}/update`, submittedCP, {
+        withCredentials: true,
+      })
       .subscribe((data) => {
         console.log(data);
       });

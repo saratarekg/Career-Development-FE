@@ -2,11 +2,11 @@
   <div *ngIf="usersSubmittedCP[user.id]">
     <div *ngFor="let submission of usersSubmittedCP[user.id]">
       <mat-card appearance="outlined">
-        <mat-card-header>
-          <mat-card-title
+        <mat-card-header class="example-card-header">
+          <mat-card-title class="example-card-name"
             >{{ user.firstName }} {{ user.lastName }}</mat-card-title
           >
-          <mat-card-subtitle>{{ submission.title }}</mat-card-subtitle>
+          <mat-card-subtitle>Title: {{ submission.title }}</mat-card-subtitle>
           <mat-card-subtitle>{{ submission.status }}</mat-card-subtitle>
           <mat-card-subtitle
             ><a href="{{ submission.googleDocLink }}" target="_blank">
@@ -14,12 +14,26 @@
             </a></mat-card-subtitle
           >
         </mat-card-header>
-        <mat-card-footer class="example-card-footer">
-          <mat-chip-set aria-label="Chihuahua traits">
-            <button mat-button class="text-success">Accept</button>
-            <button mat-button class="text-danger">Reject</button>
-          </mat-chip-set>
-        </mat-card-footer>
+        <div *ngIf="submission.status === 'PENDING'">
+          <mat-card-footer class="example-card-footer">
+            <mat-chip-set aria-label="Chihuahua traits">
+              <button
+                mat-button
+                class="text-success"
+                (click)="acceptCareerPackage(submission)"
+              >
+                Accept
+              </button>
+              <button
+                mat-button
+                class="text-danger"
+                (click)="rejectCareerPackage(submission)"
+              >
+                Reject
+              </button>
+            </mat-chip-set>
+          </mat-card-footer>
+        </div>
       </mat-card>
     </div>
   </div>

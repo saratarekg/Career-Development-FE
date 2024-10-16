@@ -3,6 +3,14 @@
   }
   
   .example-card-footer {
+    padding-left: 16px;
+  }
+
+  .example-card-header {
     padding: 16px;
+  }
+
+  .example-card-name {
+    padding: 10px;
   }
   
