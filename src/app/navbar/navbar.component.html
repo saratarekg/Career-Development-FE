@@ -1,7 +1,11 @@
 <mat-toolbar class="transparent-toolbar">
+  <div  class="notification">
+    <app-notification></app-notification>
+  </div>
   <mat-card-header class="image-header">
     <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
   </mat-card-header>
+
 
   <button mat-icon-button [matMenuTriggerFor]="menu" class="hamburger-button">
     <mat-icon>menu</mat-icon>
@@ -85,7 +89,9 @@
     } @if (isAdmin){
     <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
     }
-    <a
+      <app-notification></app-notification>
+
+      <a
       mat-button
       class="custom-primary"
       routerLink="/login"

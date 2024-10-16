@@ -11,7 +11,11 @@ export const environment = {
   userLearningsAPI: 'http://localhost:8081/api/userLearnings',
   boostersAPI: 'http://localhost:8081/api/boosters',
   proofAPI: 'http://localhost:8081/api/proofTypes',
-  articleAPI: 'http://localhost:8082/api/articles'
+  articleAPI: 'http://localhost:8082/api/articles',
+
+  actionsAPI: 'http://localhost:8084/api/actions',
+  notificationsDataAPI: 'http://localhost:8084/api/notificationsData',
+  notificationsAPI: 'http://localhost:8084/api/notifications'
 
 
 

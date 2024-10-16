@@ -10,6 +10,7 @@ import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import {NotificationComponent} from "../notifications/notifications.component";
 
 @Component({
   selector: 'app-navbar',
@@ -23,6 +24,7 @@ import { AuthService } from '../services/auth.service';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    NotificationComponent,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
