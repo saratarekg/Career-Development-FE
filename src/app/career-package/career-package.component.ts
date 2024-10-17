@@ -115,6 +115,8 @@ export class CareerPackageComponent implements OnInit {
     });
   }
 
+
+
   onSubmitCareerPackage() {
     const userid = this.authService.getUserId();
     this.careerPackageSubmissionForm.value.packageTitleControlForm =

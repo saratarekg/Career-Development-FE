@@ -1,9 +1,21 @@
-<div *ngIf="careerPackages.length > 0; else ngTemplate">
+<div *ngIf="careerPackages.length > 0; else ngTemplate" >
   <div
     *ngFor="let careerPackage of careerPackages; trackBy: trackBySubmissionId"
   >
-    <mat-card appearance="outlined">
-      <mat-card-content>{{ careerPackage.status }}</mat-card-content>
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header class="header">
+        <mat-card-title class="example-card-name"
+        >Title: {{ careerPackage.title }}</mat-card-title
+        >
+        <mat-card-subtitle
+        ><a  class="subtitle"  href="{{ careerPackage.googleDocLink }}" target="_blank">
+         View Career Package
+        </a></mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-footer class="example-card-footer">
+        <span class="approval-badge" [ngClass]="getApprovalStatusClass(careerPackage.status)">{{ careerPackage.status }}</span>
+      </mat-card-footer>
     </mat-card>
   </div>
 </div>
