@@ -39,15 +39,21 @@ export class ScoreboardComponent implements OnInit, AfterViewInit {
     this.loadScoreboard();
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
 
-    this.dataSource.sort.sort({
-      id: 'score',
-      start: 'desc',
-      disableClear: true,
-    });
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      // waiting for Angular to finish its current change detection cycle before running the sorting code
+      // to avoid ExpressionChangedAfterItHasBeenCheckedError in tests
+      this.dataSource.sort = this.sort;
+
+      this.sort.sort({
+        id: 'score',
+        start: 'desc',
+        disableClear: true,
+      });
+    }, 0);
   }
+
 
   loadScoreboard(): void {
     this.scoreboardService.getScoreboard(this.page, this.size).subscribe(
