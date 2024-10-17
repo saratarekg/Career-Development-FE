@@ -23,6 +23,9 @@ export class AuthService {
   getIsAdmin(): boolean {
     return localStorage.getItem('isAdmin') === 'true';
   }
+  getIsManager(): boolean {
+    return localStorage.getItem('isManager') === 'true';
+  }
 
   getUserId(): string | null {
     return localStorage.getItem('userId');
@@ -40,6 +43,8 @@ export class AuthService {
 
   setIsManager(isManager: boolean): void {
     this.isManager.next(isManager);
+    localStorage.setItem('isManager', isManager.toString());
+
   }
 
   setToken(token: string): void {
@@ -80,9 +85,9 @@ export class AuthService {
   //   return this.isAdmin.getValue();
   // }
 
-  getIsManager(): boolean {
-    return this.isManager.getValue();
-  }
+  // getIsManager(): boolean {
+  //   return this.isManager.getValue();
+  // }
 
   isLoggedIn(): boolean {
     const token = this.getToken();
@@ -91,6 +96,8 @@ export class AuthService {
     this.loggedIn.next(value);
     if (value) {
       this.setIsAdmin(this.getIsAdmin());
+      this.setIsManager(this.getIsManager());
+
     }
     return value;
   }
