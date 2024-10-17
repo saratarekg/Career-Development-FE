@@ -1,23 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
 
-html, body {
-}
-body { margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+
   background: rgba(124, 139, 213, 0.25);
 }
 
-.user-form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
 
-
-/*.container {*/
-/*  display: block;*/
-/*  width: 800px;*/
-/*}*/
 
 .card{
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
@@ -117,5 +107,10 @@ ul li.editMode label {
   margin-top: 12px;
 }
 
-
-
+@media (min-width: 480px)  {
+  .user-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}

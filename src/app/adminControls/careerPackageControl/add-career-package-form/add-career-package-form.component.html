@@ -2,13 +2,13 @@
   <form
     [formGroup]="addCareerPackageFormGroup"
     (ngSubmit)="onSubmitAddCareerPackage()"
+    class="form"
   >
     <mat-form-field appearance="outline">
       <mat-label>Career Package</mat-label>
       <mat-select formControlName="titleFormControl" required>
         <mat-option
           *ngFor="let title of nonAvailableCareerPackagesTitles"
-          trackBy:title
           [value]="title"
         >
           {{ title }}
@@ -30,7 +30,7 @@
       class="button"
       [disabled]="addCareerPackageFormGroup.invalid"
     >
-      Submit Learning
+      Submit Career Package
     </button>
   </form>
 </div>

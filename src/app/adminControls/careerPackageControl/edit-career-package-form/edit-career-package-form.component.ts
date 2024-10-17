@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { CareerPackageService } from '../../../services/careerPackage/career-package.service';
 import { CareerPackage } from '../../../models/careerPackageDTO';
+import {MatButton} from "@angular/material/button";
 
 const allTitles: string[] = [
   'Associate_Software_Engineer',
@@ -30,11 +31,12 @@ const allTitles: string[] = [
     ReactiveFormsModule,
     MatInputModule,
     CommonModule,
+    MatButton,
   ],
   templateUrl: './edit-career-package-form.component.html',
   styleUrl: './edit-career-package-form.component.css',
 })
-export class EditCareerPackageFormComponent {
+export class EditCareerPackageFormComponent implements OnInit{
   editCareerPackageFormGroup!: FormGroup;
 
   constructor(private careerPackageService: CareerPackageService) {}
@@ -76,6 +78,7 @@ export class EditCareerPackageFormComponent {
             this.editCareerPackageFormGroup.value.googleDocLinkFormControl,
         };
         this.careerPackageService.editCareerPackage(updatedCareerPackage);
+        alert("Career package edited successfully.")
         this.editCareerPackageFormGroup.reset();
       }
     }
