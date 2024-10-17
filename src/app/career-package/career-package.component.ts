@@ -127,8 +127,9 @@ export class CareerPackageComponent implements OnInit {
         userId: userid,
         googleDocLink:
           this.careerPackageSubmissionForm.value.googleDocLinkControlForm,
-      });
+      })
     }
+    alert("Career package submitted successfully.")
     this.careerPackageSubmissionForm.reset();
   }
   getSafeUrl(url: string): SafeResourceUrl {
