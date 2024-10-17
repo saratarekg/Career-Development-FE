@@ -12,6 +12,7 @@ export class UserService {
   private titlesAPI = environment.titlesAPI;
   private departmentsAPI = environment.departmentsAPI;
 
+
   constructor(private http: HttpClient) {}
 
   // Get user by ID
@@ -74,8 +75,8 @@ export class UserService {
   assignManagerByEmail(
     userEmail: string,
     managerEmail: string
-  ): Observable<Object> {
-    return this.http.put(
+  ): Observable<string> {
+    return this.http.put<string>(
       `${this.usersAPI}/assignManager`,
       null,
       {
@@ -99,18 +100,20 @@ export class UserService {
     });
   }
 
-  assignTitleToUser(email: string, titleId: string): Observable<object> {
-    return this.http.put(
-      `${this.usersAPI}/assignTitle?email=${email}&titleId=${titleId}`,
-      null,
-      { withCredentials: true,
-        responseType: 'text' as 'json'
-      },
-    );
-  }
+    assignTitleToUser(email: string, titleId: string): Observable<string> {
+      return this.http.put<string>(
+        `${this.usersAPI}/assignTitle?email=${email}&titleId=${titleId}`,
+        null,
+        {
+          withCredentials: true,
+          responseType: 'text' as 'json'
+        }
+      );
+    }
 
-  assignRoleToUser(email: string, roleId: string): Observable<object> {
-    return this.http.put(
+
+  assignRoleToUser(email: string, roleId: string): Observable<string> {
+    return this.http.put<string>(
       `${this.usersAPI}/assignRole?email=${email}&roleId=${roleId}`,
       null,
       { withCredentials: true,
@@ -126,7 +129,6 @@ export class UserService {
         withCredentials: true,
       });
   }
-
 
   getAllUsersPaginated(page: number, size: number): Observable<PaginatedUsers> {
     return this.http.get<PaginatedUsers>(

@@ -5,14 +5,6 @@ import { LoginDto } from '../models/loginDto';
 import { map, Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { AuthResponse } from '../models/authResponse';
-import {
-  CareerPackage,
-  PaginatedCareerPackages,
-  PaginatedSubmittedCP,
-  RequestCareerPackage,
-  RequestSubmitCPDto,
-  SubmittedCP,
-} from '../models/careerPackageDTO';
 @Injectable({
   providedIn: 'root',
 })
@@ -24,8 +16,6 @@ export class HttpService {
 
   private urlUsers = 'http://localhost:8080/api/users';
   private urlAuth = 'http://localhost:8080/api/auth';
-  private urlCareerPackages = 'http://localhost:8083/api/careerPackages';
-  private urlSubmittedCP = 'http://localhost:8083/api/submittedCP';
 
   signUpUser(user: UsersSignUpDTO) {
     return this.httpClient
@@ -63,77 +53,5 @@ export class HttpService {
       .pipe(map((response) => !!response));
   }
 
-  getAllCareerPackages(): Observable<PaginatedCareerPackages> {
-    return this.httpClient
-      .get<PaginatedCareerPackages>(
-        `${this.urlCareerPackages}/getAllCareerPackagesPaginated`,
-        { withCredentials: true }
-      )
-      .pipe(
-        map((response) => {
-          console.log(response);
-          return response;
-        })
-      );
-  }
 
-  getAllUserSubmittedCP(userId: string): Observable<PaginatedSubmittedCP> {
-    return this.httpClient.get<PaginatedSubmittedCP>(
-      `${this.urlSubmittedCP}/getCareerPackagePaginatedByUser/${userId}`,
-      { withCredentials: true }
-    );
-  }
-
-  postSubmittedCP(requestSubmitCPDto: RequestSubmitCPDto) {
-    console.log(requestSubmitCPDto);
-    this.httpClient
-      .post<RequestSubmitCPDto>(
-        `${this.urlSubmittedCP}/add`,
-        requestSubmitCPDto,
-        { withCredentials: true }
-      )
-      .subscribe((data) => {
-        console.log(data);
-      });
-  }
-
-  postAddCareerPackage(requestCareerPackage: RequestCareerPackage) {
-    this.httpClient
-      .post<RequestCareerPackage>(
-        `${this.urlCareerPackages}/add`,
-        requestCareerPackage,
-        { withCredentials: true }
-      )
-      .subscribe((data) => {
-        console.log(data);
-      });
-  }
-
-  putEditCareerPackage(careerPackage: CareerPackage) {
-    const requestCareerPackage: RequestCareerPackage = {
-      title: careerPackage.title,
-      googleDocLink: careerPackage.googleDocLink,
-    };
-
-    this.httpClient
-      .patch<RequestCareerPackage>(
-        `${this.urlCareerPackages}/update/${careerPackage.id}`,
-        requestCareerPackage,
-        { withCredentials: true }
-      )
-      .subscribe((data) => {
-        console.log(data);
-      });
-  }
-
-  updateStatusSubmittedCP(submittedCP: SubmittedCP) {
-    console.log(submittedCP);
-    this.httpClient
-      .put<SubmittedCP>(`${this.urlSubmittedCP}/update`, submittedCP, {
-        withCredentials: true,
-      })
-      .subscribe((data) => {
-        console.log(data);
-      });
-  }
 }

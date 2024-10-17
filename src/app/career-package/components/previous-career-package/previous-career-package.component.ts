@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { AuthService } from '../../../services/auth.service';
-import { HttpService } from '../../../services/http.service';
 import {
   PaginatedSubmittedCP,
   SubmittedCP,
 } from '../../../models/careerPackageDTO';
 import { CommonModule } from '@angular/common';
+import {CareerPackageService} from "../../../services/careerPackage/career-package.service";
 
 @Component({
   selector: 'app-previous-career-package',
@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PreviousCareerPackageComponent implements OnInit {
   constructor(
-    private httpService: HttpService,
+    private careerPackageService: CareerPackageService,
     private authService: AuthService
   ) {}
 
@@ -28,7 +28,7 @@ export class PreviousCareerPackageComponent implements OnInit {
     console.log('PreviousCareerPackageComponent');
     const userId = this.authService.getUserId();
     if (userId) {
-      this.httpService.getAllUserSubmittedCP(userId).subscribe((data) => {
+      this.careerPackageService.getAllUserSubmittedCP(userId).subscribe((data) => {
         this.careerPackages = data.content;
       });
     } else {
@@ -39,4 +39,18 @@ export class PreviousCareerPackageComponent implements OnInit {
   trackBySubmissionId(index: number, careerPackage: any): string {
     return careerPackage.submissionId;
   }
+
+  getApprovalStatusClass(status: string): string {
+    switch (status) {
+      case 'APPROVED':
+        return 'approved';
+      case 'PENDING':
+        return 'pending';
+      case 'REJECTED':
+        return 'rejected';
+      default:
+        return '';
+    }
+  }
+
 }
