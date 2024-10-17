@@ -6,17 +6,12 @@
   margin:10px
 }
 
-.example-card-footer {
-  padding: 16px;
-}
+
 
 .example-card:hover {
   transform: translateY(-5px);
 }
 
-.example-card-footer {
-  padding: 16px; /* Padding for the footer */
-}
 
 .title {
   font-size: 1.5rem; /* Larger title */
@@ -35,12 +30,7 @@
   align-items: flex-start;
 }
 
-.example-card-footer {
-  display: flex;
-  justify-content: space-between; /* Ensure footer items are spaced out */
-  align-items: center;
-  position: relative; /* Relative positioning for the badge */
-}
+
 
 .approval-badge {
   background-color: #007bff; /* Default color */

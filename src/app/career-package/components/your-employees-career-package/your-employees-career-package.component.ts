@@ -63,9 +63,20 @@ export class YourEmployeesCareerPackageComponent implements OnInit {
       });
     }
   }
+  getApprovalStatusClass(status: string): string {
+    switch (status) {
+      case 'APPROVED':
+        return 'approved';
+      case 'PENDING':
+        return 'pending';
+      case 'REJECTED':
+        return 'rejected';
+      default:
+        return '';
+    }
+  }
 
   acceptCareerPackage(submittedCP: SubmittedCP) {
-    // TODO: Implement logic to accept the career package submission
     console.log('AcceptingCareerPackage');
     console.log(submittedCP);
     this.careerPackageService.updateStatusSubmittedCareerPackage({
@@ -75,7 +86,6 @@ export class YourEmployeesCareerPackageComponent implements OnInit {
   }
 
   rejectCareerPackage(submittedCP: SubmittedCP) {
-    // TODO: Implement logic to accept the career package submission
     console.log('RejectingCareerPackage');
     this.careerPackageService.updateStatusSubmittedCareerPackage({
       ...submittedCP,
