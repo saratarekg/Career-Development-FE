@@ -1,4 +1,4 @@
-<p>
+<p class="paragraph">
   By nature, each job title has a set of “requirements” that needs to be
   fulfilled in order for an employee to advance in his/her career. At Sumerge,
   we require the employee to fulfil those requirements before being promoted to
@@ -6,10 +6,7 @@
 </p>
 <div class="tablediv">
   <table mat-table [dataSource]="careerPackages" class="mat-elevation-z8">
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Title Column -->
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef>Title</th>
       <td mat-cell *matCellDef="let careerPackage">
@@ -31,7 +28,7 @@
   </table>
 </div>
 
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" class="card">
   <mat-card-content>
     <div class="mat-accordion-container">
       <mat-accordion>
@@ -47,11 +44,9 @@
             (ngSubmit)="onSubmitCareerPackage()"
           >
             <div
-              style="display: flex; flex-direction: column; gap: 10px"
               class="submit-career-package"
             >
               <mat-form-field
-                class="wide-form-field"
                 formControlName="packageTitleControlForm"
               >
                 <mat-label>Select a Career Package</mat-label>
@@ -81,7 +76,7 @@
                   required
                 />
               </mat-form-field>
-              <button class="btn btn-primary" type="submit">Submit</button>
+              <button  mat-raised-button color="primary" type="submit">Submit</button>
             </div>
           </form>
         </mat-expansion-panel>

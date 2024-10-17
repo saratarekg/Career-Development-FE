@@ -1,10 +1,12 @@
-table {
-  width: 100%;
-
-}
-
 .scoreboard-container {
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.table-wrapper {
+  overflow-x: auto; /* Allows horizontal scrolling on smaller devices */
 }
 
 .level-badge {
@@ -34,30 +36,61 @@ table {
   background-color: orange;
 }
 
-
-.filter-controls {
-  margin-bottom: 20px;
-}
-
-.mat-mdc-form-field {
+.filter-form-field {
   width: 100%;
 }
 
-table {
-  width: 100%;
-}
-
-.head-row{
+.head-row {
   background-color: #7c8bd5;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-
 .first-rank-icon {
   color: gold;
   font-size: 25px;
   margin-left: 8px;
   vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .scoreboard-container {
+    margin: 10px;
+  }
+
+  .level-badge {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+
+  .first-rank-icon {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+
+  th, td {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .filter-form-field {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .level-badge {
+    font-size: 0.6rem;
+    padding: 2px 5px;
+  }
+
+  .first-rank-icon {
+    font-size: 18px;
+  }
+
+  th, td {
+    font-size: 0.75rem;
+  }
 }

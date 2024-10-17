@@ -41,6 +41,26 @@ mat-icon {
   display: none;
 }
 
+@media (max-width: 380px) {
+  .map-section {
+    height: 200px;
+  }
+  .learning-scoreboard-card {
+    padding: 10px;
+    margin: 10px;
+  }
+  .scoreboard-text{
+
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 380px) and (max-width: 480px) {
+  .map-section {
+    height: 250px;
+  }
+}
+
 
 @media (max-width: 768px) {
   .content-container {
@@ -66,7 +86,7 @@ mat-icon {
   }
 
   .map-section {
-    max-height: 350px;
+    max-height: 500px;
   }
 }
 

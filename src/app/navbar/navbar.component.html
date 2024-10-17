@@ -3,15 +3,15 @@
     <app-notification></app-notification>
   </div>
   <mat-card-header class="image-header">
-    <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" />
+    <img src="sumerge.png" alt="Sumerge Logo" class="sumerge-logo" routerLink="/home"
+    />
   </mat-card-header>
-
 
   <button mat-icon-button [matMenuTriggerFor]="menu" class="hamburger-button">
     <mat-icon>menu</mat-icon>
   </button>
 
-  <mat-menu #menu="matMenu">
+  <mat-menu #menu="matMenu" class="mat-menu-panel">
     @if (!isLoggedIn) {
     <button mat-menu-item routerLink="/login" routerLinkActive="active">
       Login

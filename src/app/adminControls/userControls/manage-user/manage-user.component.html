@@ -1,5 +1,5 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-
+<div class="user-form-grid">
 <div class="row">
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
@@ -14,10 +14,11 @@
 </div>
 <div class="toggles">
     <mat-button-toggle-group [(ngModel)]="selectedAction">
-      <mat-button-toggle value="freeze" (click)="setAction('freeze')">Freeze User</mat-button-toggle>
-      <mat-button-toggle value="unfreeze" (click)="setAction('unfreeze')">Unfreeze User</mat-button-toggle>
-      <mat-button-toggle value="delete" (click)="setAction('delete')">Delete User</mat-button-toggle>
+      <mat-button-toggle class="toggle-text" value="freeze" (click)="setAction('freeze')">Freeze User</mat-button-toggle>
+      <mat-button-toggle class="toggle-text" value="unfreeze" (click)="setAction('unfreeze')">Unfreeze User</mat-button-toggle>
+      <mat-button-toggle class="toggle-text" value="delete" (click)="setAction('delete')">Delete User</mat-button-toggle>
     </mat-button-toggle-group>
+  </div>
   </div>
   <button mat-raised-button color="primary" type="submit">Submit</button>
 

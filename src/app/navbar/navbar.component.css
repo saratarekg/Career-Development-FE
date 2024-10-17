@@ -26,6 +26,10 @@ mat-toolbar a.active {
 
 }
 
+.mat-menu-panel{
+  overflow: hidden;
+}
+
 .card-container {
   padding:30px;
   margin: 0 auto;
@@ -47,6 +51,10 @@ mat-toolbar a.active {
 
 .notification {
   display: none; /* Hide for larger screens */
+}
+
+.image-header{
+  cursor: pointer;
 }
 
 

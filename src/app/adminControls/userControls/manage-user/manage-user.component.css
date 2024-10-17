@@ -1,11 +1,10 @@
-.mat-mdc-form-field {
-  width: 40%;
-}
-.row {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+
 .toggles{
   padding-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .toggle-text{
+    font-size: 10px;
+  }
 }
